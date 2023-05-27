@@ -20,7 +20,7 @@
             <div class="fixed top-0 left-0 w-full">
                 <div class="mx-6 sm:mx-16 flex justify-between items-center h-16">
                     <div class="flex-grow">
-                        <p class="tracking-wide">Sultan Herrysan</p>
+                        <p class="tracking-widest">Sultan Herrysan</p>
                     </div>
                     <div class="flex gap-9">
                         <div class="hidden sm:block">
@@ -36,12 +36,10 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="theme-switch" class="outline rounded px-2 w-9 flex justify-center">
-                            <button id="theme-light">
-                                <i class="fa-solid fa-sun text-color_dark"></i>
-                            </button>
-                            <button id="theme-dark">
-                                <i class="fa-solid fa-moon text-color_light"></i>
+                        <div id="theme-switch" class="rounded-full w-12 py-[5px] flex justify-center bg-color_light dark:bg-color_dark">
+                            <button class="flex items-center justify-between w-full">
+                                <i id="theme-light" class="fa-solid fa-sun text-color_light pl-2"></i>
+                                <i id="theme-dark" class="fa-solid fa-moon text-color_dark pr-2"></i>
                             </button>
                         </div>
                         <div id="open-sm-nav" class="static sm:hidden">
@@ -53,13 +51,14 @@
                             <li class="ml-auto mr-[-5px] mt-[-12px]">
                                 <i id="close-sm-nav" class="fa-solid fa-xmark fa-3x"></i>
                             </li>
-                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light pb-3">
+                            <!-- if Selected = 'nav-selected opacity-40 pointer-events-none scale-90' -->
+                            <li class="nav-selected opacity-40 pointer-events-none scale-90 text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition ease-in-out duration-300">
                                 <p>About</p>
                             </li>
-                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light pb-3">
+                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition ease-in-out duration-300">
                                 <p>Project</p>
                             </li>
-                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light pb-3">
+                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition ease-in-out duration-300">
                                 <p>Contact</p>
                             </li>
                         </ul>
@@ -68,8 +67,6 @@
             </div>
         </Nav>
         <!-- END OF NAVBAR -->
-        
-    </main>
 
     <!-- MAIN SCRIPT -->
     <script src="../src/main.js"></script>
