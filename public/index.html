@@ -9,8 +9,70 @@
     <!-- Tailwind -->
     <link rel="stylesheet" href="output.css">
 
+     <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/a95f1e0b99.js" crossorigin="anonymous"></script>
+
 </head>
-<body>
-    <h1 class="text-center text-blue-600">HELLO</h1>
+<body class="bg-color_dark dark:bg-color_light">
+    <main>
+        <!-- NAVBAR -->
+        <Nav class="font-playFair font-semibold text-color_light dark:text-color_dark">
+            <div class="fixed top-0 left-0 w-full">
+                <div class="mx-6 sm:mx-16 flex justify-between items-center h-16">
+                    <div class="flex-grow">
+                        <p class="tracking-wide">Sultan Herrysan</p>
+                    </div>
+                    <div class="flex gap-5">
+                        <div class="hidden sm:block">
+                            <ul class="flex items-center gap-8">
+                                <li>
+                                    <p>About</p>
+                                </li>
+                                <li>
+                                    <p>Project</p>
+                                </li>
+                                <li>
+                                    <p>Contact</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="outline rounded">
+                            <button id="theme-light">
+                                <i class="fa-solid fa-sun text-color_dark h-5 w-6"></i>
+                            </button>
+                            <button id="theme-dark">
+                                <i class="fa-solid fa-moon text-color_light h-5 w-6"></i>
+                            </button>
+                        </div>
+                        <div id="open-sm-nav" class="static sm:hidden">
+                            <i class="fa-solid fa-bars fa-xl"></i>
+                        </div>
+                    </div>
+                    <div id="sm-nav" class="fixed overflow-hidden sm:hidden top-0 right-0 w-0 h-full text-color_dark dark:text-color_light bg-color_light dark:bg-color_dark ease-in-out duration-500">
+                        <ul class="flex flex-col m-6 justify-center gap-10 tracking-widest">
+                            <li class="ml-auto mr-0">
+                                <i id="close-sm-nav" class="fa-solid fa-xmark fa-3x"></i>
+                            </li>
+                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light pb-3">
+                                <p>About</p>
+                            </li>
+                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light pb-3">
+                                <p>Project</p>
+                            </li>
+                            <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light pb-3">
+                                <p>Contact</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </Nav>
+        <!-- END OF NAVBAR -->
+        
+    </main>
+
+    <!-- MAIN SCRIPT -->
+    <script src="../src/main.js"></script>
+   
 </body>
 </html>
