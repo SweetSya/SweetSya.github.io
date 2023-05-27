@@ -2,6 +2,7 @@
 //Icons
 const lightIcon =  document.querySelector('#theme-light')
 const darkIcon =  document.querySelector('#theme-dark')
+const themeBtn = document.querySelector('#theme-switch')
 
 //Theme
 const userTheme = localStorage.getItem('theme')
@@ -37,12 +38,7 @@ const themeSwitch = () => {
     iconToggle()
 }
 
-lightIcon.addEventListener('click', () => {
-    console.log('light click')
-    themeSwitch()
-})
-darkIcon.addEventListener('click', () => {
-    console.log('dark click')
+themeBtn.addEventListener('click', () => {
     themeSwitch()
 })
 
