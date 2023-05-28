@@ -164,4 +164,16 @@ const currentPage = () => {
 const removeSideArrow = (el) => {
     document.querySelector('#'+el).classList.toggle('scale-0')
 }
+
+//Initialize Sideabr
+const initSidebar = () => {
+    if (currentPage() === 1) {
+        removeSideArrow('page-up')
+        return
+    }
+    if (currentPage() === elementsPageScrollTopLib.length) {
+        removeSideArrow('page-down')
+    }
+}
+initSidebar()
 // Sidebar ============================================
