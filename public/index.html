@@ -45,31 +45,31 @@
                         <i class="fa-solid fa-bars fa-xl"></i>
                     </div>
                 </div>
-                <div id="sm-nav" class="fixed overflow-hidden sm:hidden top-0 right-0 w-0 h-full text-color_dark dark:text-color_light bg-color_light/90 dark:bg-color_dark/90 transition-global-400">
-                    <ul class="flex flex-col m-6 justify-center gap-10 tracking-widest">
-                        <li class="ml-auto mr-[-5px] mt-[-12px]">
-                            <i id="close-sm-nav" class="fa-solid fa-xmark fa-3x"></i>
-                        </li>
-                        <!-- if Selected = 'nav-selected opacity-40 pointer-events-none scale-90' -->
-                        <li class="nav-selected opacity-40 pointer-events-none scale-90 text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition-global-300">
-                            <p>About</p>
-                        </li>
-                        <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition-global-300">
-                            <p>Project</p>
-                        </li>
-                        <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition-global-300">
-                            <p>Contact</p>
-                        </li>
-                    </ul>
-                </div>
             </div>
+        </div>
+        <div id="sm-nav" class="fixed overflow-hidden sm:hidden top-0 right-0 w-0 h-full text-color_dark dark:text-color_light bg-color_light/90 dark:bg-color_dark/90 transition-global-400 z-10">
+            <ul class="flex flex-col m-6 justify-center gap-10 tracking-widest">
+                <li class="ml-auto mr-[-5px] mt-[-12px]">
+                    <i id="close-sm-nav" class="fa-solid fa-xmark fa-3x"></i>
+                </li>
+                <!-- if Selected = 'nav-selected opacity-40 pointer-events-none scale-90' -->
+                <li class="nav-selected opacity-40 pointer-events-none scale-90 text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition-global-300">
+                    <p>About</p>
+                </li>
+                <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition-global-300">
+                    <p>Project</p>
+                </li>
+                <li class="text-5xl border-b-[1px] border-color_dark dark:border-color_light p-3 hover:px-4 hover:bg-color_dark hover:dark:bg-color_light hover:text-color_light hover:dark:text-color_dark hover:scale-90 transition-global-300">
+                    <p>Contact</p>
+                </li>
+            </ul>
         </div>
     </Nav>
     <!-- END OF NAVBAR -->
     
     <!-- SIDE SCROLL NAV -->
     <nav class="font-playFair font-medium text-color-auto">
-        <div class="fixed right-20 top-0 h-screen flex flex-col justify-between w-0">
+        <div class="fixed right-20 top-0 h-screen flex flex-col justify-between w-0 z-0">
             <div id="page-up" class="mt-20 h-16 justify-center flex items-center transition-global-300 transform">                 
                 <i class="fa-solid fa-arrow-up fa-4x absolute hover:-translate-y-3 hover:opacity-80 transition-global-300"></i>
             </div>

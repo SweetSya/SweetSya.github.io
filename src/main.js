@@ -94,17 +94,16 @@ pageDownBtn.addEventListener('click', () => {
     pageDownHandler()
     setTimeout(() => {
         sideNavDotsHandler()
-    }, 500)
+    }, 400)
 })
 pageUpBtn.addEventListener('click', () => {
     pageUpHandler()
     setTimeout(() => {
         sideNavDotsHandler()
-    }, 500)
+    }, 400)
 })
 
 const sideNavDotsHandler = () => {
-    console.log(currentPage())
     const activeDots = document.querySelector('.sn-active')
     activeDots.classList.toggle('sn-active')
     activeDots.classList.toggle('sn-unactive')
