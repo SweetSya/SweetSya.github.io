@@ -63,3 +63,105 @@ const smNavHandler = () => {
 
 
 // Nvbar =================================================
+
+// Sidebar ============================================
+
+elementsPageScrollTopLib = [
+    {
+        page: 1,
+        top: document.querySelector('#page1').offsetTop
+    },
+    {
+        page: 2,
+        top: document.querySelector('#page2').offsetTop
+    },
+    {
+        page: 3,
+        top: document.querySelector('#page3').offsetTop
+    },
+    {
+        page: 4,
+        top: document.querySelector('#page4').offsetTop
+    },
+    
+]
+
+const pageUpBtn = document.querySelector('#page-up')
+const pageDownBtn = document.querySelector('#page-down')
+
+pageDownBtn.addEventListener('click', () => {
+    pageDownHandler()
+})
+pageUpBtn.addEventListener('click', () => {
+    pageUpHandler()
+})
+
+const pageDownHandler = () => {
+    const current = currentPage()+1
+    
+    if (current > elementsPageScrollTopLib.length) {
+        return
+    }
+
+    //if it hits bottom, remove arrow bottom
+    if (current === elementsPageScrollTopLib.length) {
+        if (!pageDownBtn.classList.contains('scale-0')){
+            removeSideArrow('page-down')
+        }
+    } else { //if its going outside top, then add arrow top
+        if (pageUpBtn.classList.contains('scale-0')){
+            removeSideArrow('page-up')
+        }
+    }
+    
+    
+    const nextPage = '#page'+(current)
+    document.querySelector(nextPage).scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
+}
+
+const pageUpHandler = () => {
+    const current = currentPage()-1
+    
+    if (current < 1) {
+        return
+    }
+
+    //if it hits top, remove arrow top
+    if (current === 1) {
+        if (!pageUpBtn.classList.contains('scale-0')){
+            removeSideArrow('page-up')
+        }
+    } else { //if its going outside bottom, then add arrow bottom
+        if (pageDownBtn.classList.contains('scale-0')){
+            removeSideArrow('page-down')
+        }
+    }
+
+    const prevPage = '#page'+(current)
+    document.querySelector(prevPage).scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
+}
+
+const currentPage = () => {
+    const fromTop = window.pageYOffset
+
+    let currentTop = 9999999
+    let currentPage = 0
+
+    for (var x = 0; x < elementsPageScrollTopLib.length; x++) {
+        selisih = elementsPageScrollTopLib[x].top - fromTop
+        if (selisih < 0) {
+            selisih = selisih * -1
+        }
+        if (selisih < currentTop) {
+            currentTop = selisih
+            currentPage = elementsPageScrollTopLib[x].page
+        } 
+    }
+    return currentPage
+    
+}
+
+const removeSideArrow = (el) => {
+    document.querySelector('#'+el).classList.toggle('scale-0')
+}
+// Sidebar ============================================

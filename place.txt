@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="output.css">
-
-     <!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/a95f1e0b99.js" crossorigin="anonymous"></script>
-
-</head>
-<body class="bg-color_dark dark:bg-color_light transition-colors overflow-hidden">
-    <!-- NAVBAR -->
+<!-- NAVBAR -->
     <Nav class="font-playFair font-medium text-color-auto">
         <div class="fixed top-0 left-0 w-full">
             <div class="mx-6 sm:mx-16 flex justify-between items-center h-16">
@@ -69,12 +53,23 @@
     
     <!-- SIDE SCROLL NAV -->
     <nav class="font-playFair font-medium text-color-auto">
-        <div class="fixed right-20 top-0 h-screen flex flex-col justify-between w-0">
-            <div id="page-up" class="mt-20 h-16 justify-center flex items-center transition-global-300">                 
-                <i class="-ml-2 fa-solid fa-arrow-up fa-4x absolute hover:-translate-y-3 hover:opacity-80 transition-global-300"></i>
+        <div class="fixed right-20 top-0 h-screen flex flex-col justify-between z-[-1]">
+            <div class="mt-20 h-16">                 
+                <i class="-ml-3 fa-solid fa-arrow-up fa-4x absolute hover:-translate-y-3 hover:opacity-80 transition-global-300"></i>
             </div>
+            <!-- <ul class="flex-grow flex flex-col justify-between">
+                <li class="text-[160px] font-extrabold tracking-widest transition-global-300">
+                    <h1 class="absolute top-1/4 right-14 translate-x-14 -translate-y-1/3 text-color_light/70 dark:text-color_dark/70">01</h1>
+                </li>
+                <li class="text-[46px] font-extrabold tracking-widest transition-global-300">
+                    <h1 class="absolute right-20 top-[60%] translate-x-[-5rem] -translate-y-[60%] text-color_light/40 dark:text-color_dark/40">02</h1>
+                </li>  
+                <li class="text-[46px] font-extrabold tracking-widest transition-global-300">
+                    <h1 class="absolute top-[80%] right-14 translate-x-14 -translate-y-[80%] text-color_light/40 dark:text-color_dark/40">03</h1>
+                </li>
+            </ul> -->
             <ul class="flex-grow flex flex-col items-center justify-center gap-6">
-                <li class="w-5 h-5 bg-color-auto-dark rounded-full transition-global-200">
+                <li class="w-5 h-5 bg-color-auto-dark rounded-full outline transition-global-200">
                     
                 </li>
                 <li class="w-5 h-5 bg-color-auto-light rounded-full outline scale-75 hover:bg-color-auto-dark transition-global-200">
@@ -87,39 +82,8 @@
                     
                 </li>
             </ul>
-            <div id="page-down" class="mb-24 h-auto flex justify-center items-center transition-global-300">
-                <i class="-mr-2 fa-solid fa-arrow-down fa-4x absolute hover:translate-y-3 hover:opacity-80 transition-global-300"></i>
+            <div class="mb-24 h-auto">
+                <i class="-ml-3 fa-solid fa-arrow-down fa-4x absolute hover:translate-y-3 hover:opacity-80 transition-global-300"></i>
             </div>
         </div>
     </nav>
-    <!-- END OF SIDE SCROLL NAV -->
-    <main>
-        <!-- PAGE 1 -->
-        <section id="page1" class="w-full h-screen flex items-center justify-center" >
-            <h1>PAGE 1</h1>
-        </section>
-        <!-- END OF PAGE 1 -->
-
-        <!-- PAGE 2 -->
-        <section id="page2" class="w-full h-screen flex items-center justify-center" >
-            <h1>PAGE 2</h1>
-        </section>
-        <!-- END OF PAGE 2 -->
-
-        <!-- PAGE 3 -->
-        <section id="page3" class="w-full h-screen flex items-center justify-center" >
-            <h1>PAGE 3</h1>
-        </section>
-        <!-- END OF PAGE 3 -->
-        
-        <!-- PAGE 4 -->
-        <section id="page4" class="w-full h-screen flex items-center justify-center" >
-            <h1>PAGE 4</h1>
-        </section>
-        <!-- END OF PAGE 4 -->
-    </main>
-    <!-- MAIN SCRIPT -->
-    <script src="../src/main.js"></script>
-   
-</body>
-</html>

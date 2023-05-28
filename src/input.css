@@ -7,9 +7,46 @@
     @apply hidden;
 }
 
-/* Navbar */
+
 @layer components {
+    /* Universal */
+    .text-color-auto {
+      @apply text-color_light dark:text-color_dark
+    }
+    .bg-color-auto-dark {
+      @apply bg-color_light dark:bg-color_dark
+    }
+    .bg-color-auto-light {
+      @apply bg-color_dark dark:bg-color_light
+    }
+    .outline-color-auto-dark {
+      @apply outline-color_light dark:outline-color_dark
+    }
+    .outline-color-auto-light {
+      @apply outline-color_light dark:outline-color_light
+    }
+    .transition-global-200 {
+      transition: 200ms ease-in-out;
+    }
+    .transition-global-300 {
+      transition: 300ms ease-in-out;
+    }
+    .transition-global-400 {
+      transition: 400ms ease-in-out;
+    }
+    .transition-global-500 {
+      transition: 500ms ease-in-out;
+    }
+    /* Navbar */
     .sm-nav-active {
       height: 100% !important;
     }
-  }
+    /* Sidenav */
+    .sn-active {
+      
+    }
+    .sn-unactive {
+
+    }
+    
+}
