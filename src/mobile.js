@@ -24,7 +24,7 @@ const initMobileView_sidenav = () => {
 }
 
 //run if its mobile
-if (!detectMob) {
+if (detectMob()) {
     alert('using Mobile view')
     initMobileView_sidenav()
 }
