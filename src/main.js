@@ -88,13 +88,31 @@ elementsPageScrollTopLib = [
 
 const pageUpBtn = document.querySelector('#page-up')
 const pageDownBtn = document.querySelector('#page-down')
+const sideNavDots = document.querySelectorAll('.sidenav-dots')
 
 pageDownBtn.addEventListener('click', () => {
     pageDownHandler()
+    setTimeout(() => {
+        sideNavDotsHandler()
+    }, 500)
 })
 pageUpBtn.addEventListener('click', () => {
     pageUpHandler()
+    setTimeout(() => {
+        sideNavDotsHandler()
+    }, 500)
 })
+
+const sideNavDotsHandler = () => {
+    console.log(currentPage())
+    const activeDots = document.querySelector('.sn-active')
+    activeDots.classList.toggle('sn-active')
+    activeDots.classList.toggle('sn-unactive')
+
+    const newDots = sideNavDots[currentPage()-1]
+    newDots.classList.toggle('sn-unactive')
+    newDots.classList.toggle('sn-active')
+}
 
 const pageDownHandler = () => {
     const current = currentPage()+1
@@ -165,7 +183,7 @@ const removeSideArrow = (el) => {
     document.querySelector('#'+el).classList.toggle('scale-0')
 }
 
-//Initialize Sideabr
+    //Initialize Sideabr
 const initSidebar = () => {
     if (currentPage() === 1) {
         removeSideArrow('page-up')
@@ -176,4 +194,5 @@ const initSidebar = () => {
     }
 }
 initSidebar()
+
 // Sidebar ============================================
