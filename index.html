@@ -8,8 +8,13 @@
 </head>
 <body>
     Please wait.. redirecting to the page!
+    <p>is Phone ? <span></span></p>
+    <script src="src/mobile.js"></script>
     <script>
-        window.location.href = "/public";
+        document.querySelector('span').innerText = detectMob()
+        setTimeout(() => {
+            window.location.href = "/public";
+        }, 1500)
     </script>
 </body>
 </html>
