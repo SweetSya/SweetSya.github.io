@@ -19,11 +19,11 @@
     .bg-color-auto-light {
       @apply bg-color_dark dark:bg-color_light
     }
-    .outline-color-auto-dark {
-      @apply outline-color_light dark:outline-color_dark
+    .ring-color-auto-dark {
+      @apply ring-color_light dark:ring-color_dark
     }
-    .outline-color-auto-light {
-      @apply outline-color_light dark:outline-color_light
+    .ring-color-auto-light {
+      @apply ring-color_light dark:ring-color_light
     }
     .transition-global-200 {
       transition: 200ms ease-in-out;
