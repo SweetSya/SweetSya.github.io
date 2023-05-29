@@ -48,5 +48,4 @@
     .sn-unactive {
       @apply bg-color-auto-light ring ring-color-auto-dark scale-75 hover:bg-color-auto-dark
     }
-    
 }
