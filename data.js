@@ -134,8 +134,8 @@ const data = {
       detil: [
         "Laravel",
         "MySQL",
-        "html5-qrcode<i class='iconoir-arrow-up-right before:w-4 before:h-4'></i>",
-        "QRCode.js<i class='iconoir-arrow-up-right before:w-4 before:h-4'></i>",
+        "html5-qrcode&nbsp<i class='iconoir-link before:w-4 before:h-4'></i>",
+        "QRCode.js&nbsp<i class='iconoir-link before:w-4 before:h-4'></i>",
       ],
       image: ["./proyek/admin.png", "./proyek/admin.png", "./proyek/admin.png"],
     },

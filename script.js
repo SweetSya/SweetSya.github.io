@@ -9,9 +9,7 @@ const initiatePengalaman = (data) => {
         detil +
         `</li>`;
     });
-    let link = document.createElement("a");
-    link.href = item.link;
-    link.target = "_blank";
+    let link = document.createElement("div");
     link.className =
       "hover:bg-slate-100/5 p-5 rounded-md border-b-slate-50/30 transition-all duration-150 -ml-3";
     link.innerHTML =
@@ -21,12 +19,12 @@ const initiatePengalaman = (data) => {
       item.tahun +
       `
         </div>
-        <div class="text-white font-semibold underline pb-1">
+        <a href="`+item.link+`" target="_blank" class="text-white font-semibold underline pb-1">
         ` +
       item.title +
       `
         <i class="iconoir-arrow-up-right before:w-4 before:h-4"></i>
-        </div>
+        </a>
         <div>` +
       item.desc +
       `</div>
