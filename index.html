@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portofolio</title>
+    <!-- Styke CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Taiwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconoir -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
+
+    <!-- SwiperJS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-poppins text-white">
+    <!-- <video
+      src="bg.mp4"
+      class="fixed -z-10 w-screen h-screen object-cover"
+      muted
+      autoplay
+      loop
+    ></video> -->
+    <!-- <div
+      class="fixed top-0 left-8 h-8 w-full bg-slate-900/40 z-40 backdrop-blur-sm border-b"
+    ></div>
+    <div
+      class="fixed bottom-0 h-8 w-full bg-slate-900/40 z-20 backdrop-blur-sm border-t"
+    ></div>
+    <div
+      class="fixed top-0 left-0 h-screen w-8 bg-slate-900/40 z-10 border-r backdrop-blur-sm"
+    ></div>
+    <div
+      class="fixed top-0 right-0 h-screen w-8 bg-slate-900/40 z-30 border-l backdrop-blur-sm"
+    ></div> -->
+    <main class="h-full">
+      <div
+        class="relative h-full flex flex-wrap bg-gradient-to-r from-slate-900/100 to-slate-700/100"
+      >
+        <aside class="relative w-full lg:w-2/5">
+          <div
+            class="fixed px-16 xl:px-32 py-28 hidden lg:flex flex-col gap-8 lg:w-2/5"
+          >
+            <div class="flex-1">
+              <section>
+                <h1
+                  class="text-4xl font-semibold tracking-tighter pb-3 text-nowrap"
+                >
+                  Sultan Herrysan
+                </h1>
+                <h2 class="text-2xl font-light tracking-normal">
+                  Web Developer
+                </h2>
+                <br />
+                <p class="tracking-normal font-light opacity-90">
+                  Ikhtiar dulu, masalah hasil sudah ada yang mengatur.
+                </p>
+              </section>
+              <nav class="mt-6 flex flex-col gap-2">
+                <a
+                  href="#tentang"
+                  class="nav-link group flex py-1 px-2 items-center gap-5 font-semibold tracking-wide opacity-70 hover:opacity-100 transition-all duration-200"
+                >
+                  <span
+                    class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200"
+                  ></span>
+                  <div>Tentang</div> </a
+                ><a
+                  href="#pengalaman"
+                  class="nav-link group flex py-1 px-2 items-center gap-5 font-semibold tracking-wide opacity-70 hover:opacity-100 transition-all duration-200"
+                >
+                  <span
+                    class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200"
+                  ></span>
+                  <div>Pengalaman</div>
+                </a>
+                <a
+                  href="#keterampilan"
+                  class="nav-link group flex py-1 px-2 items-center gap-5 font-semibold tracking-wide opacity-70 hover:opacity-100 transition-all duration-200"
+                >
+                  <span
+                    class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200"
+                  ></span>
+                  <div>Keterampilan</div> </a
+                ><a
+                  href="#proyek"
+                  class="nav-link group flex py-1 px-2 items-center gap-5 font-semibold tracking-wide opacity-70 hover:opacity-100 transition-all duration-200"
+                >
+                  <span
+                    class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200"
+                  ></span>
+                  <div>Project</div>
+                </a>
+              </nav>
+            </div>
+            <div class="flex gap-3">
+              <a href="#">
+                <i
+                  class="hover:bg-slate-50 hover:text-slate-900 rounded-full iconoir-github-circle before:w-7 before:h-7 transition-all duration-150 p-1"
+                ></i>
+              </a>
+              <a href="#">
+                <i
+                  class="hover:bg-slate-50 hover:text-slate-900 rounded-full iconoir-linkedin before:w-7 before:h-7 transition-all duration-150 p-1"
+                ></i>
+              </a>
+              <a href="#">
+                <i
+                  class="hover:bg-slate-50 hover:text-slate-900 rounded-full iconoir-x before:w-7 before:h-7 transition-all duration-150 p-1"
+                ></i>
+              </a>
+              <a href="#">
+                <i
+                  class="hover:bg-slate-50 hover:text-slate-900 rounded-full iconoir-instagram before:w-7 before:h-7 transition-all duration-150 p-1"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </aside>
+        <section
+          class="flex-1 font-normal text-slate-100/80 tracking-normal relative w-full lg:w-3/5"
+        >
+          <div class="px-8 md:px-16 lg:px-24">
+            <div class="mt-24"></div>
+            <div id="tentang">
+              <!-- <h2 class="text-4xl tracking-tight pb-6 text-white">Tentang</h2> -->
+              <div class="pt-4">
+                Berawal di
+                <span class="text-white font-bold">SMA (tahun 2018)</span>, saya
+                diperkenalkan dunia Pemrograman oleh teman sebangku saya.
+                Bersama mengikuti ekstra TIK dengan julukan
+                <span class="text-white font-bold">CLUTIK</span>, saya
+                mempelajari pemahaman dasar tentang
+                <span class="italic">hardware</span> dan pemrograman
+                <span class="italic">software</span> menggunakan bahasa Pascal.
+                Sedikit membingungkan untuk seseorang yang sama sekali tidak
+                memiliki latar belakang apapun tentang dunia IT.
+              </div>
+              <br />
+              <div>
+                Berbekal dari ilmu yang dimiliki, saya memberanikan diri untuk
+                terjun secara penuh pada bidang ini. Lalu disinilah saya
+                sekarang, mengerjakan proyek pengembangan program perangkat
+                lunak untuk
+                <span class="text-white font-bold">perorangan</span>,
+                <span class="text-white font-bold"
+                  >perusahaan kecil-menengah</span
+                >, hingga
+                <span class="text-white font-bold">perusahaan besar</span>.
+                Ketimbang merasa terbebani, saya selalu menaggap bahwa proyek
+                yang saya kerjakan merupakan
+                <span class="text-white font-bold"
+                  >permainan <span class="italic">problem-solving</span></span
+                >
+                jangka panjang.
+              </div>
+              <br />
+              <div>
+                Saat ini saya lebih berfokus pada pengembangan diri untuk tidak
+                terpaku pada zona nyaman :)
+              </div>
+            </div>
+            <div id="pengalaman" class="mt-16 relative pt-16 md:pt-20">
+              <h2
+                class="absolute text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-6 text-white/40"
+              >
+                Pengalaman
+              </h2>
+              <br />
+              <div id="data-pengalaman" class="flex flex-col gap-5"></div>
+            </div>
+            <div id="keterampilan" class="mt-16 relative py-16 md:py-20">
+              <h2
+                class="absolute text-6xl md:text-7xl top-1/2 z-50 left-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold tracking-tight pb-6 text-white/40"
+              >
+                Keterampilan
+              </h2>
+              <br>
+              <div class="swiper-container mt-8">
+                <div class="swiper-keterampilan swiper mb-10">
+                  <div
+                    class="swiper-wrapper swiper-bahasa swiper-framework"
+                  ></div>
+                </div>
+                <div class="swiper-keterampilan swiper mb-10" dir="rtl">
+                  <div
+                    class="swiper-wrapper swiper-database swiper-workspace"
+                  ></div>
+                </div>
+                <div class="swiper-keterampilan swiper mb-10">
+                  <div
+                    class="swiper-wrapper swiper-bahasa swiper-framework"
+                  ></div>
+                </div>
+                <div class="swiper-keterampilan swiper mb-10" dir="rtl">
+                  <div
+                    class="swiper-wrapper swiper-database swiper-workspace"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div id="proyek" class="mt-16 relative pt-16 md:pt-20">
+              <h2
+                class="absolute text-6xl md:text-7xl top-0 right-0 font-extrabold tracking-tight pb-6 text-white/40"
+              >
+                Project
+              </h2>
+              <br />
+              <div id="data-proyek"></div>
+            </div>
+            <div class="mb-24"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+  <!-- SwiperJS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Main Script JS -->
+  <script src="script.js"></script>
+</html>
