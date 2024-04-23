@@ -1,13 +1,4 @@
-// Fetch Data from data.JSON
-fetch("./data.json")
-  .then((resp) => resp.json())
-  .then((data) => {
-    initiatePengalaman(data.pengalaman);
-    initiateKeterampilan(data.keterampilan);
-    initiateProyek(data.proyek);
-  });
-
-// Inisiasi data pengalaman dari data.JSON
+// Inisiasi data pengalaman dari data.js
 const initiatePengalaman = (data) => {
   let parentElement = document.querySelector("#data-pengalaman");
   data.forEach((item) => {
@@ -48,7 +39,7 @@ const initiatePengalaman = (data) => {
   });
 };
 
-// Inisiasi data proyek dari data.JSON
+// Inisiasi data proyek dari data.js
 const initiateProyek = (data) => {
   let parentElement = document.querySelector("#data-proyek");
   data.forEach((item) => {
@@ -148,7 +139,7 @@ const initiateProyek = (data) => {
   });
 };
 
-// Inisiasi data keterampilan dari data.JSON
+// Inisiasi data keterampilan dari data.js
 const initiateKeterampilan = (data) => {
   for (var terampil in data) {
     let items = data[terampil];
@@ -173,7 +164,7 @@ const initiateKeterampilan = (data) => {
   var swiperKeterampilan = new Swiper(".swiper-keterampilan", {
     slidesPerView: 5,
     spaceBetween: 30,
-    speed:1000,
+    speed: 4000,
     autoplay: {
       delay: 0,
     },
@@ -196,3 +187,13 @@ navlink.forEach((link) => {
     });
   });
 });
+
+// Fetch Data from data.js
+
+const start = () => {
+  initiatePengalaman(data.pengalaman);
+  initiateKeterampilan(data.keterampilan);
+  initiateProyek(data.proyek);
+};
+
+start();
