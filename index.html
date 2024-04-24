@@ -29,6 +29,11 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
+    <!-- LightGalleryJS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery.min.css"
+      rel="stylesheet"
+    />
     <!-- Tailwind Config -->
     <script>
       tailwind.config = {
@@ -42,7 +47,7 @@
       };
     </script>
   </head>
-  <body class="font-poppins text-white">
+  <body class="font-poppins text-white scroll-smooth">
     <!-- <video
       src="bg.mp4"
       class="fixed -z-10 w-screen h-screen object-cover"
@@ -198,13 +203,18 @@
               <br />
               <div id="data-pengalaman" class="flex flex-col gap-5"></div>
             </div>
-            <div id="keterampilan" class="relative h-screen">
+            <div
+              id="keterampilan"
+              class="mt-16 relative min-h-[500px] h-screen"
+            >
               <h2
                 class="absolute text-6xl md:text-7xl top-1/2 z-50 left-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold tracking-tight pb-6 text-white/40"
               >
                 Keterampilan
               </h2>
-              <div class="h-full flex flex-col justify-center pointer-events-none">
+              <div
+                class="h-full flex flex-col justify-center pointer-events-none"
+              >
                 <div class="swiper-container">
                   <div class="swiper-keterampilan swiper mb-10">
                     <div
@@ -256,7 +266,8 @@
   </body>
   <!-- SwiperJS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+  <!-- LightGalleryJS -->
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
   <!-- Data.js -->
   <script src="data.js"></script>
   <!-- Main Script JS -->

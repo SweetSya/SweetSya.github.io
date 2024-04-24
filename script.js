@@ -5,7 +5,7 @@ const initiatePengalaman = (data) => {
     let detils = "";
     item.detil.forEach((detil) => {
       detils +=
-        `<li class="text-sm bg-gradient-to-bl from-indigo-800/80 to-teal-700/80 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
+        `<li class="text-sm bg-gradient-to-bl from-indigo-700/80 to-teal-500/80 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
         detil +
         `</li>`;
     });
@@ -19,7 +19,9 @@ const initiatePengalaman = (data) => {
       item.tahun +
       `
         </div>
-        <a href="`+item.link+`" target="_blank" class="text-white font-semibold underline pb-1">
+        <a href="` +
+      item.link +
+      `" target="_blank" class="text-white font-semibold underline pb-1">
         ` +
       item.title +
       `
@@ -77,7 +79,7 @@ const initiateProyek = (data) => {
     let detils = "";
     item.detil.forEach((detil) => {
       detils +=
-        `<li class="text-sm bg-gradient-to-bl from-indigo-800/80 to-teal-700/80 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
+        `<li class="text-sm bg-gradient-to-bl from-indigo-700/80 to-teal-500/80 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
         detil +
         `</li>`;
     });
@@ -85,15 +87,17 @@ const initiateProyek = (data) => {
     item.image.forEach((image) => {
       images +=
         `
-      <div class="swiper-slide min-w-52 w-2/3 px-5 py-5 -ml-5">
-        <img
+      <a href="` +
+        image +
+        `" class="swiper-slide w-fit py-5 -ml-5">
+        <img class="object-contain max-h-60"
           src="` +
         image +
         `"
           alt=""
           class="shadow-sm shadow-white/80 rounded-md"
         />
-      </div>`;
+      </a>`;
     });
     let div = document.createElement("div");
     div.className =
@@ -121,7 +125,7 @@ const initiateProyek = (data) => {
           </ul>
         </div>
         <div class="swiper swiper-proyek-img">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper light-image">
             ` +
       images +
       `
@@ -133,7 +137,12 @@ const initiateProyek = (data) => {
   // Swiper foto proyek
   var swiperProyek = new Swiper(".swiper-proyek-img", {
     slidesPerView: "auto",
-    spaceBetween: 5,
+    spaceBetween: 30,
+  });
+  // LightGallery foto proyek
+  document.querySelectorAll(".light-image").forEach((element) => {
+    lightGallery(element, {
+    });
   });
 };
 
