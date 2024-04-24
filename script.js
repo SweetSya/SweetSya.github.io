@@ -5,7 +5,7 @@ const initiatePengalaman = (data) => {
     let detils = "";
     item.detil.forEach((detil) => {
       detils +=
-        `<li class="text-sm bg-gradient-to-bl from-indigo-700/80 to-teal-500/80 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
+        `<li class="text-sm bg-gradient-to-bl from-indigo-500/20 to-teal-400/20 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
         detil +
         `</li>`;
     });
@@ -21,7 +21,7 @@ const initiatePengalaman = (data) => {
         </div>
         <a href="` +
       item.link +
-      `" target="_blank" class="text-white font-semibold underline pb-1">
+      `" target="_blank" class="text-white font-semibold underline pb-1 transition-all duration-150">
         ` +
       item.title +
       `
@@ -79,7 +79,7 @@ const initiateProyek = (data) => {
     let detils = "";
     item.detil.forEach((detil) => {
       detils +=
-        `<li class="text-sm bg-gradient-to-bl from-indigo-700/80 to-teal-500/80 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
+        `<li class="text-sm bg-gradient-to-bl from-indigo-500/20 to-teal-400/20 text-cyan-50 px-3 py-1 rounded-lg text-nowrap">` +
         detil +
         `</li>`;
     });
@@ -141,8 +141,7 @@ const initiateProyek = (data) => {
   });
   // LightGallery foto proyek
   document.querySelectorAll(".light-image").forEach((element) => {
-    lightGallery(element, {
-    });
+    lightGallery(element, {});
   });
 };
 
@@ -169,11 +168,23 @@ const initiateKeterampilan = (data) => {
 
   // Swiper Keterampilan
   var swiperKeterampilan = new Swiper(".swiper-keterampilan", {
-    slidesPerView: 5,
+    slidesPerView: 3,
     spaceBetween: 30,
     speed: 4000,
     autoplay: {
       delay: 0,
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 5,
+        spaceBetween: 30,
+      }
     },
     freemode: true,
     loop: true,

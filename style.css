@@ -6,3 +6,15 @@
     transparent 100%
   );
 }
+#data-pengalaman:hover > div:not(:hover) {
+  opacity: 0.5;
+}
+#data-pengalaman:hover > div:hover a {
+  color: rgb(97, 245, 225);
+}
+#data-proyek:hover > div:not(:hover) {
+  opacity: 0.5;
+}
+#data-proyek:hover > div:hover span {
+  color: rgb(97, 245, 225);
+}
