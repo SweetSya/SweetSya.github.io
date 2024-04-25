@@ -184,7 +184,7 @@ const initiateKeterampilan = (data) => {
       480: {
         slidesPerView: 5,
         spaceBetween: 30,
-      }
+      },
     },
     freemode: true,
     loop: true,
@@ -215,3 +215,4 @@ const start = () => {
 };
 
 start();
+
