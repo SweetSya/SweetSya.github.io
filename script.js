@@ -206,13 +206,46 @@ navlink.forEach((link) => {
   });
 });
 
-// Fetch Data from data.js
+const whichElementInViewport = () => {
+  var section = document.querySelectorAll(".scm-section");
+  for (x = section.length - 1; x >= 0; x--) {
+    var anchor =
+      document.documentElement.scrollTop + Math.round(window.innerHeight / 2);
+    var distanceToTop = window.scrollY + section[x].getBoundingClientRect().top;
 
+    if (anchor > distanceToTop) {
+      changeNavClass(section, section[x].id, x);
+      break;
+    }
+  }
+};
+const changeNavClass = (section, id) => {
+  const navBars = document.querySelectorAll(".nav-bars");
+  const navLink = document.querySelectorAll(".nav-link");
+  for (x = 0; x < section.length; x++) {
+    if (section[x].id == id) {
+      if (!navBars[x].classList.contains("max-w-24")) {
+        navBars[x].classList.add("max-w-24");
+        navLink[x].classList.add("opacity-100");
+      }
+    } else {
+      if (navBars[x].classList.contains("max-w-24")) {
+        navBars[x].classList.remove("max-w-24");
+        navLink[x].classList.remove("opacity-100");
+      }
+    }
+  }
+};
 const start = () => {
   initiatePengalaman(data.pengalaman);
   initiateKeterampilan(data.keterampilan);
   initiateProyek(data.proyek);
+  document.addEventListener("scroll", () => {
+    whichElementInViewport();
+  });
+  whichElementInViewport();
 };
 
-start();
-
+document.addEventListener("DOMContentLoaded", (event) => {
+  start();
+});
