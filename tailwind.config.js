@@ -1,13 +1,6 @@
+// filepath: d:\Programming\WebDev\SweetSya.github.io\tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "*.html",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        robotoMono: ["Roboto Mono", "sans-serif"],
-      },
-    },
-  },
+  content: ["./index.html", "./script.js"],
   plugins: [],
 };
