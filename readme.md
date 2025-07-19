@@ -27,10 +27,10 @@ This portfolio was inspired by [Brittany Chiang's](https://brittanychiang.com/) 
 ├── 📄 readme.md
 ├── 📄 .gitignore
 ├── 📁 dist/
-│   ├── 📄 style.css # Tailwind-generated CSS
-│   ├── 📄 script.js # JavaScript logic
-│   ├── 📄 data.js # All the dynamic data for UI
-│   ├── 📁 assets/ # Images, icons, etc.
+    ├── 📄 style.css # Tailwind-generated CSS
+    ├── 📄 script.js # JavaScript logic
+    ├── 📄 data.js # All the dynamic data for UI
+    ├── 📁 assets/ # Images, icons, etc.
 ```
 
 All files used for the website are stored in the `dist/` folder.
