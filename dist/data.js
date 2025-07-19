@@ -60,77 +60,77 @@ const data = {
   keterampilan: {
     bahasa: [
       {
-        link: "./dist/images/keterampilan/bahasa/html.png",
+        link: "./dist/assets/keterampilan/bahasa/html.png",
         name: "HTML",
       },
       {
-        link: "./dist/images/keterampilan/bahasa/css.png",
+        link: "./dist/assets/keterampilan/bahasa/css.png",
         name: "CSS",
       },
       {
-        link: "./dist/images/keterampilan/bahasa/javascript.png",
+        link: "./dist/assets/keterampilan/bahasa/javascript.png",
         name: "js",
       },
       {
-        link: "./dist/images/keterampilan/bahasa/java.png",
+        link: "./dist/assets/keterampilan/bahasa/java.png",
         name: "Java",
       },
       {
-        link: "./dist/images/keterampilan/bahasa/php.png",
+        link: "./dist/assets/keterampilan/bahasa/php.png",
         name: "PHP",
       },
       {
-        link: "./dist/images/keterampilan/bahasa/golang.png",
+        link: "./dist/assets/keterampilan/bahasa/golang.png",
         name: "Golang",
       },
     ],
     framework: [
       {
-        link: "./dist/images/keterampilan/framework/bootstrap.png",
+        link: "./dist/assets/keterampilan/framework/bootstrap.png",
         name: "Bootstrap",
       },
       {
-        link: "./dist/images/keterampilan/framework/tailwind.png",
+        link: "./dist/assets/keterampilan/framework/tailwind.png",
         name: "Tailwind",
       },
       {
-        link: "./dist/images/keterampilan/framework/laravel.png",
+        link: "./dist/assets/keterampilan/framework/laravel.png",
         name: "Laravel",
       },
       {
-        link: "./dist/images/keterampilan/framework/nextjs.png",
+        link: "./dist/assets/keterampilan/framework/nextjs.png",
         name: "NextJS",
       },
       {
-        link: "./dist/images/keterampilan/framework/gingonic.png",
+        link: "./dist/assets/keterampilan/framework/gingonic.png",
         name: "Gin-gonic",
       },
     ],
     database: [
       {
-        link: "./dist/images/keterampilan/database/mysql.png",
+        link: "./dist/assets/keterampilan/database/mysql.png",
         name: "MySQL",
       },
       {
-        link: "./dist/images/keterampilan/database/postgresql.png",
+        link: "./dist/assets/keterampilan/database/postgresql.png",
         name: "PostgreSQL",
       },
       {
-        link: "./dist/images/keterampilan/database/oracle.png",
+        link: "./dist/assets/keterampilan/database/oracle.png",
         name: "Oracle",
       },
       {
-        link: "./dist/images/keterampilan/database/firebase.png",
+        link: "./dist/assets/keterampilan/database/firebase.png",
         name: "Firebase",
       },
     ],
     workspace: [
       {
-        link: "./dist/images/keterampilan/workspace/git.png",
+        link: "./dist/assets/keterampilan/workspace/git.png",
         name: "Git",
       },
       {
-        link: "./dist/images/keterampilan/workspace/vscode.png",
+        link: "./dist/assets/keterampilan/workspace/vscode.png",
         name: "VSCode",
       },
     ],
@@ -151,9 +151,9 @@ const data = {
         "<a href='https://github.com/davidshimjs/qrcodejs' target='_blank' class='underline'>QRCode.js&nbsp<i class='iconoir-link before:w-4 before:h-4'></i></a>",
       ],
       image: [
-        "./dist/images/proyek/nusantara/1.PNG",
-        "./dist/images/proyek/nusantara/2.PNG",
-        "./dist/images/proyek/nusantara/3.PNG",
+        "./dist/assets/proyek/nusantara/1.PNG",
+        "./dist/assets/proyek/nusantara/2.PNG",
+        "./dist/assets/proyek/nusantara/3.PNG",
       ],
     },
     {
@@ -171,11 +171,11 @@ const data = {
         "<a href='https://github.com/michalsnik/aos' target='_blank' class='underline'>AOS&nbsp<i class='iconoir-link before:w-4 before:h-4'></i></a>",
       ],
       image: [
-        "./dist/images/proyek/zstowing/1.PNG",
-        "./dist/images/proyek/zstowing/2.PNG",
-        "./dist/images/proyek/zstowing/3.PNG",
-        "./dist/images/proyek/zstowing/4.PNG",
-        "./dist/images/proyek/zstowing/5.PNG",
+        "./dist/assets/proyek/zstowing/1.PNG",
+        "./dist/assets/proyek/zstowing/2.PNG",
+        "./dist/assets/proyek/zstowing/3.PNG",
+        "./dist/assets/proyek/zstowing/4.PNG",
+        "./dist/assets/proyek/zstowing/5.PNG",
       ],
     },
     {
@@ -187,12 +187,12 @@ const data = {
       desc: "Proyek personal untuk membangun pemutar musik berbasis web menggunakan <b><i>HTML</i>, <i>CSS</i>, dan <i>JavaScript</i> murni</b>. Dirancang dengan tampilan responsif dan antarmuka sederhana untuk <b>melatih logika interaktif</b> dan <b>desain UI dasar</b>.",
       detil: ["Personal Project", "Plain HTML, CSS, & JS"],
       image: [
-        "./dist/images/proyek/rehear/1.PNG",
-        "./dist/images/proyek/rehear/2.PNG",
-        "./dist/images/proyek/rehear/3.PNG",
-        "./dist/images/proyek/rehear/4.PNG",
-        "./dist/images/proyek/rehear/5.PNG",
-        "./dist/images/proyek/rehear/6.PNG",
+        "./dist/assets/proyek/rehear/1.PNG",
+        "./dist/assets/proyek/rehear/2.PNG",
+        "./dist/assets/proyek/rehear/3.PNG",
+        "./dist/assets/proyek/rehear/4.PNG",
+        "./dist/assets/proyek/rehear/5.PNG",
+        "./dist/assets/proyek/rehear/6.PNG",
       ],
     },
     {
@@ -213,11 +213,11 @@ const data = {
         "<a href='https://leafletjs.com/' target='_blank' class='underline'>LeafletJS&nbsp<i class='iconoir-link before:w-4 before:h-4'></i></a>",
       ],
       image: [
-        "./dist/images/proyek/attendance-app/1.png",
-        "./dist/images/proyek/attendance-app/2.png",
-        "./dist/images/proyek/attendance-app/3.png",
-        "./dist/images/proyek/attendance-app/4.png",
-        "./dist/images/proyek/attendance-app/5.png",
+        "./dist/assets/proyek/attendance-app/1.png",
+        "./dist/assets/proyek/attendance-app/2.png",
+        "./dist/assets/proyek/attendance-app/3.png",
+        "./dist/assets/proyek/attendance-app/4.png",
+        "./dist/assets/proyek/attendance-app/5.png",
       ],
     },
     {
@@ -235,11 +235,11 @@ const data = {
         "<a href='https://quilljs.com/' target='_blank' class='underline'>QuillJS&nbsp<i class='iconoir-link before:w-4 before:h-4'></i></a>",
       ],
       image: [
-        "./dist/images/proyek/kmf/1.png",
-        "./dist/images/proyek/kmf/2.png",
-        "./dist/images/proyek/kmf/3.png",
-        "./dist/images/proyek/kmf/4.png",
-        "./dist/images/proyek/kmf/5.png",
+        "./dist/assets/proyek/kmf/1.png",
+        "./dist/assets/proyek/kmf/2.png",
+        "./dist/assets/proyek/kmf/3.png",
+        "./dist/assets/proyek/kmf/4.png",
+        "./dist/assets/proyek/kmf/5.png",
       ],
     },
   ],
