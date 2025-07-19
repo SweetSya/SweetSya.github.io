@@ -30,18 +30,15 @@ const tl = gsap.timeline({
 
 tl.to("#keterampilan .showcase", {
   duration: 2,
-  x: "-25%",
+  x: "-30%",
   stagger: 0.2,
-}).to("#keterampilan .panel:nth-child(2)", {
-  duration: 2,
-  x: "15%",
 });
 
 gsap.to("#keterampilan .panel:nth-child(1)", {
   duration: 2,
-  x: "100%",
-  y: "-65%",
-  scale: 0.8,
+  x: "125%",
+  // y: "-65%",
+  scale: 0.9,
   stagger: 0.4, // each starts 0.4s after the previous
   scrollTrigger: {
     trigger: "#keterampilan .panel:nth-child(2)",

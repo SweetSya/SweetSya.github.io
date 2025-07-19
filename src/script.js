@@ -161,7 +161,11 @@ const initiateKeterampilan = (data) => {
       items.forEach((item) => {
         parents.forEach((parent) => {
           let img = document.createElement("img");
-          img.className = "h-24 w-24 object-contain p-5 border bg-white m-1";
+          if (isMobile()) {
+            img.className = "h-16 w-16 object-contain p-3 border bg-white m-1";
+          } else {
+            img.className = "h-20 w-20 object-contain p-3 border bg-white m-1";
+          }
           img.src = item.link;
           img.alt = item.name;
           parent.appendChild(img);
@@ -190,7 +194,7 @@ const whichElementInViewport = () => {
   var section = document.querySelectorAll(".scm-section");
   for (let x = section.length - 1; x >= 0; x--) {
     // anchor are position of the top of the page (0 at the start)
-    var anchor = document.documentElement.scrollTop;
+    var anchor = document.documentElement.scrollTop + 300;
     // distanceToTop is the position of the top of the section
     // If section are the first element (x == 0), distanceToTop is -1
     // ensure that the first section nav is always active when the page is at the top
@@ -264,8 +268,8 @@ const start = () => {
   whichElementInViewport();
 };
 
+import "./gsap.js";
+
 document.addEventListener("DOMContentLoaded", (event) => {
   start();
 });
-
-import "./gsap.js";
