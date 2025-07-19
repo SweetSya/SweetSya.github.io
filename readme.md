@@ -24,8 +24,9 @@ This portfolio was inspired by [Brittany Chiang's](https://brittanychiang.com/) 
 
 ```bash
 ├── 📄 index.html # Single-page portfolio layout
-├── 📄 readme.md
+├── 📄 README.md
 ├── 📄 .gitignore
+├── 📄 tailwind.config.js #Tailwind config
 ├── 📁 dist/
     ├── 📄 style.css # Tailwind-generated CSS
     ├── 📄 script.js # JavaScript logic
