@@ -99,11 +99,23 @@ const data = {
       },
       {
         link: "./dist/assets/keterampilan/framework/nextjs.png",
-        name: "NextJS",
+        name: "Next JS",
       },
       {
         link: "./dist/assets/keterampilan/framework/gingonic.png",
         name: "Gin-gonic",
+      },
+      {
+        link: "./dist/assets/keterampilan/framework/vue.png",
+        name: "Vue JS",
+      },
+      {
+        link: "./dist/assets/keterampilan/framework/livewire.png",
+        name: "Livewire",
+      },
+      {
+        link: "./dist/assets/keterampilan/framework/alpine.png",
+        name: "Alpine JS",
       },
     ],
     database: [
@@ -244,3 +256,5 @@ const data = {
     },
   ],
 };
+
+export { data };

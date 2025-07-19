@@ -1,3 +1,6 @@
+// This file is part of SweetSya.github.io
+import { data } from "./data.js";
+
 // Inisiasi data pengalaman dari data.js
 const initiatePengalaman = (data) => {
   let parentElement = document.querySelector("#data-pengalaman");
@@ -147,47 +150,25 @@ const initiateProyek = (data) => {
 
 // Inisiasi data keterampilan dari data.js
 const initiateKeterampilan = (data) => {
-  for (var terampil in data) {
-    let items = data[terampil];
-    let parents = document.querySelectorAll(".swiper-" + terampil);
-    items.forEach((item) => {
-      parents.forEach((parent) => {
-        div = document.createElement("div");
-        div.className = "swiper-slide flex justify-center items-center";
-        div.innerHTML =
-          `<img src="` +
-          item.link +
-          `" alt="` +
-          item.name +
-          `" class="w-12 h-12">`;
-        parent.appendChild(div);
+  // Inisiasi data keterampilan
+  let cycle = 2;
+  for (let i = 0; i < cycle; i++) {
+    for (var terampil in data) {
+      let items = data[terampil];
+      let parents = document.querySelectorAll(
+        "#keterampilan .panel .showcase." + terampil
+      );
+      items.forEach((item) => {
+        parents.forEach((parent) => {
+          let img = document.createElement("img");
+          img.className = "h-24 w-24 object-contain p-5 border bg-white m-1";
+          img.src = item.link;
+          img.alt = item.name;
+          parent.appendChild(img);
+        });
       });
-    });
+    }
   }
-
-  // Swiper Keterampilan
-  var swiperKeterampilan = new Swiper(".swiper-keterampilan", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    speed: 4000,
-    autoplay: {
-      delay: 0,
-    },
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 5,
-        spaceBetween: 30,
-      },
-    },
-    freemode: true,
-    loop: true,
-  });
 };
 
 // Event listener untuk nav-link
@@ -207,7 +188,7 @@ navlink.forEach((link) => {
 
 const whichElementInViewport = () => {
   var section = document.querySelectorAll(".scm-section");
-  for (x = section.length - 1; x >= 0; x--) {
+  for (let x = section.length - 1; x >= 0; x--) {
     // anchor are position of the top of the page (0 at the start)
     var anchor = document.documentElement.scrollTop;
     // distanceToTop is the position of the top of the section
@@ -231,7 +212,7 @@ const changeNavClass = (section, id) => {
   const navBars = document.querySelectorAll(".nav-bars");
   const navLink = document.querySelectorAll(".nav-link");
   // swhitch the class of the active and inactive nav link
-  for (x = 0; x < section.length; x++) {
+  for (let x = 0; x < section.length; x++) {
     if (section[x].id == id) {
       if (!navBars[x].classList.contains("max-w-24")) {
         navBars[x].classList.add("max-w-24");
@@ -246,7 +227,7 @@ const changeNavClass = (section, id) => {
   }
 };
 // Check if the user are on mobile or desktop
-isMobile = () => {
+const isMobile = () => {
   let check = false;
   (function (a) {
     if (
@@ -286,3 +267,5 @@ const start = () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   start();
 });
+
+import "./gsap.js";
