@@ -640,6 +640,9 @@
     --tw-duration: 200ms;
     transition-duration: 200ms;
   }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
   .group-hover\:max-w-24 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
