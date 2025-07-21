@@ -272,5 +272,4 @@ const start = async () => {
 };
 document.addEventListener("DOMContentLoaded", (event) => {
   start();
-
 });
