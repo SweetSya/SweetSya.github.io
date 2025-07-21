@@ -5,24 +5,44 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
-// Gsap Data
+// Pengalaman
+document.fonts.ready.then(() => {
+  gsap.set("#pengalaman .gsap-section-title", { opacity: 1 });
+
+  let pengalamanTitle = document.querySelector("#pengalaman .gsap-section-title");
+
+  SplitText.create(pengalamanTitle, {
+    type: "words,lines",
+    mask: "lines",
+    linesClass: "line",
+    autoSplit: true,
+    onSplit: (instance) => {
+      return gsap.from(instance.lines, {
+        yPercent: 120,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: pengalamanTitle,
+          scrub: true,
+          start: "top center+=50",
+          end: "clamp(bottom center)",
+        },
+      });
+    },
+  });
+});
 let gsapDatas = gsap.utils.toArray(".gsap-data > div");
 
-gsap.set(gsapDatas, { opacity: 0, yPercent: 150 });
+gsap.set(gsapDatas, { opacity: 0, yPercent: 50 });
 const pengalamanTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: "#data-pengalaman",
-    start: "top center+=250",
+    start: "top center+=150",
     end: "bottom center",
     scrub: true,
   },
 });
 gsapDatas.forEach((el) => {
-  pengalamanTimeline.to(
-    el,
-    { opacity: 1, yPercent: 0, duration: 0.5 },
-    "+=0.2"
-  );
+  pengalamanTimeline.to(el, { opacity: 1, yPercent: 0, duration: 1 }, "+=0.2");
 });
 
 // Keterampilan GSAP
@@ -53,36 +73,4 @@ gsapTimelineKeterampilan.to("#keterampilan .showcase", {
   duration: 2,
   x: "-20%",
   stagger: 0.2,
-});
-
-document.fonts.ready.then(() => {
-  gsap.set(".gsap-section-tigsapTimelineKeterampilane", { opacity: 1 });
-
-  document.fonts.ready.then(() => {
-    let containers = gsap.utils.toArray(".scm-section");
-
-    containers.forEach((container) => {
-      let text = container.querySelector(".gsap-section-title");
-      let animation;
-
-      SplitText.create(text, {
-        type: "words,lines",
-        mask: "lines",
-        linesClass: "line",
-        autoSplit: true,
-        onSplit: (instance) => {
-          return gsap.from(instance.lines, {
-            yPercent: 120,
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: text,
-              scrub: true,
-              start: "clamp(top center)",
-              end: "clamp(bottom center)",
-            },
-          });
-        },
-      });
-    });
-  });
 });

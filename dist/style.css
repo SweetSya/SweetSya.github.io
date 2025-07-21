@@ -437,6 +437,9 @@
       border-bottom-color: color-mix(in oklab, var(--color-slate-50) 30%, transparent);
     }
   }
+  .bg-black {
+    background-color: var(--color-black);
+  }
   .bg-slate-50 {
     background-color: var(--color-slate-50);
   }
