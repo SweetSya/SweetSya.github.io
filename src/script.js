@@ -14,7 +14,7 @@ const initiatePengalaman = (data) => {
     });
     let link = document.createElement("div");
     link.className =
-      "hover:bg-slate-100/5 p-5 rounded-md border-b-slate-50/30 transition-all duration-150 -ml-3";
+      "hover:bg-slate-100/15 p-5 rounded-md border-b-slate-50/30 transition-all duration-150 -ml-3";
     link.innerHTML =
       `
         <div class="text-sm tracking-wide mb-2 opacity-80 font-semibold">
@@ -104,7 +104,7 @@ const initiateProyek = (data) => {
     });
     let div = document.createElement("div");
     div.className =
-      "hover:bg-slate-100/5 p-5 rounded-md border-b-slate-50/30 transition-all duration-150 -ml-3";
+      "hover:bg-slate-100/15 p-5 rounded-md border-b-slate-50/30 transition-all duration-150 -ml-3";
     div.innerHTML =
       `
         <div class="flex justify-between">
