@@ -1,14 +1,35 @@
 import { gsap } from "gsap";
-import { Timeline } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+
+// Gsap Data
+let gsapDatas = gsap.utils.toArray(".gsap-data > div");
+
+gsap.set(gsapDatas, { opacity: 0, yPercent: 150 });
+const pengalamanTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#data-pengalaman",
+    start: "top center+=250",
+    end: "bottom center",
+    scrub: true,
+  },
+});
+gsapDatas.forEach((el) => {
+  pengalamanTimeline.to(
+    el,
+    { opacity: 1, yPercent: 0, duration: 0.5 },
+    "+=0.2"
+  );
+});
 
 // Keterampilan GSAP
-let keterampilans = gsap.utils.toArray("#keterampilan .panel");
+let gsapKeterampilans = gsap.utils.toArray("#keterampilan .panel");
 
-gsap.to(keterampilans, {
-  xPercent: -100 * (keterampilans.length - 1),
+const gsapKeterampilan = gsap.to(gsapKeterampilans, {
+  xPercent: -100 * (gsapKeterampilans.length - 1),
   ease: "none",
   scrollTrigger: {
     start: "top center-=250",
@@ -19,7 +40,7 @@ gsap.to(keterampilans, {
   },
 });
 
-const tl = gsap.timeline({
+const gsapTimelineKeterampilan = gsap.timeline({
   scrollTrigger: {
     trigger: "#keterampilan .panel:nth-child(2)",
     start: "top center",
@@ -28,45 +49,40 @@ const tl = gsap.timeline({
   },
 });
 
-tl.to("#keterampilan .showcase", {
+gsapTimelineKeterampilan.to("#keterampilan .showcase", {
   duration: 2,
   x: "-20%",
   stagger: 0.2,
 });
 
-gsap.to("#keterampilan .panel:nth-child(1)", {
-  duration: 2,
-  x: "110%",
-  y: "-40%",
-  scale: 1,
-  stagger: 0.4, // each starts 0.4s after the previous
-  scrollTrigger: {
-    trigger: "#keterampilan .panel:nth-child(2)",
-    start: "top center",
-    end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
-    scrub: true,
-  },
-});
+document.fonts.ready.then(() => {
+  gsap.set(".gsap-section-tigsapTimelineKeterampilane", { opacity: 1 });
 
-// Cursor follow
-const cursorObject = document.querySelector("#cursor-follow");
-window.addEventListener("mousemove", (e) => {
-  cursorFollow({
-    x: e.clientX,
-    y: e.clientY,
+  document.fonts.ready.then(() => {
+    let containers = gsap.utils.toArray(".scm-section");
+
+    containers.forEach((container) => {
+      let text = container.querySelector(".gsap-section-title");
+      let animation;
+
+      SplitText.create(text, {
+        type: "words,lines",
+        mask: "lines",
+        linesClass: "line",
+        autoSplit: true,
+        onSplit: (instance) => {
+          return gsap.from(instance.lines, {
+            yPercent: 120,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: text,
+              scrub: true,
+              start: "clamp(top center)",
+              end: "clamp(bottom center)",
+            },
+          });
+        },
+      });
+    });
   });
 });
-
-const cursorFollow = (client) => {
-  if (client) {
-    cursorObject.classList.remove('hidden')
-    gsap.to(cursorObject, {
-      duration: 0.5,
-      stagger: 0.3,
-      x: client.x - cursorObject.offsetWidth / 2,
-      y: client.y - cursorObject.offsetHeight / 2,
-    });
-  }
-};
-
-cursorFollow();

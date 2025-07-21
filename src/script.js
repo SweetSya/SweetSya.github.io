@@ -257,7 +257,7 @@ const initiateBackground = () => {
     bgWrapper.querySelector("img")?.remove();
   }
 };
-const start = () => {
+const start = async () => {
   initiateBackground();
   initiatePengalaman(data.pengalaman);
   initiateKeterampilan(data.keterampilan);
@@ -266,10 +266,11 @@ const start = () => {
     whichElementInViewport();
   });
   whichElementInViewport();
+
+  // Dynamically import gsap.js after start logic
+  await import("./gsap.js");
 };
-
-import "./gsap.js";
-
 document.addEventListener("DOMContentLoaded", (event) => {
   start();
+
 });

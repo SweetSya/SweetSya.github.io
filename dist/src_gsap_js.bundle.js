@@ -1,0 +1,22 @@
+"use strict";
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["src_gsap_js"],{
+
+/***/ "./src/gsap.js":
+/*!*********************!*\
+  !*** ./src/gsap.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ \"./node_modules/gsap/index.js\");\n/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ \"./node_modules/gsap/ScrollTrigger.js\");\n/* harmony import */ var gsap_SplitText__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/SplitText */ \"./node_modules/gsap/SplitText.js\");\n\r\n\r\n\r\n\r\ngsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);\r\ngsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText);\r\n\r\n// Gsap Data\r\nlet gsapDatas = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(\".gsap-data > div\");\r\n\r\ngsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(gsapDatas, { opacity: 0, yPercent: 150 });\r\nconst pengalamanTimeline = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({\r\n  scrollTrigger: {\r\n    trigger: \"#data-pengalaman\",\r\n    start: \"top center+=250\",\r\n    end: \"bottom center\",\r\n    scrub: true,\r\n  },\r\n});\r\ngsapDatas.forEach((el) => {\r\n  pengalamanTimeline.to(\r\n    el,\r\n    { opacity: 1, yPercent: 0, duration: 0.5 },\r\n    \"+=0.2\"\r\n  );\r\n});\r\n\r\n// Keterampilan GSAP\r\nlet gsapKeterampilans = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(\"#keterampilan .panel\");\r\n\r\nconst gsapKeterampilan = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(gsapKeterampilans, {\r\n  xPercent: -100 * (gsapKeterampilans.length - 1),\r\n  ease: \"none\",\r\n  scrollTrigger: {\r\n    start: \"top center-=250\",\r\n    trigger: \"#keterampilan\",\r\n    pin: true,\r\n    scrub: 1,\r\n    end: () => \"+=\" + document.querySelector(\"#keterampilan\").offsetWidth,\r\n  },\r\n});\r\n\r\nconst gsapTimelineKeterampilan = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({\r\n  scrollTrigger: {\r\n    trigger: \"#keterampilan .panel:nth-child(2)\",\r\n    start: \"top center\",\r\n    end: () => \"+=\" + document.querySelector(\"#keterampilan\").offsetWidth,\r\n    scrub: true,\r\n  },\r\n});\r\n\r\ngsapTimelineKeterampilan.to(\"#keterampilan .showcase\", {\r\n  duration: 2,\r\n  x: \"-20%\",\r\n  stagger: 0.2,\r\n});\r\n\r\ndocument.fonts.ready.then(() => {\r\n  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(\".gsap-section-tigsapTimelineKeterampilane\", { opacity: 1 });\r\n\r\n  document.fonts.ready.then(() => {\r\n    let containers = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(\".scm-section\");\r\n\r\n    containers.forEach((container) => {\r\n      let text = container.querySelector(\".gsap-section-title\");\r\n      let animation;\r\n\r\n      gsap_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText.create(text, {\r\n        type: \"words,lines\",\r\n        mask: \"lines\",\r\n        linesClass: \"line\",\r\n        autoSplit: true,\r\n        onSplit: (instance) => {\r\n          return gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(instance.lines, {\r\n            yPercent: 120,\r\n            stagger: 0.1,\r\n            scrollTrigger: {\r\n              trigger: text,\r\n              scrub: true,\r\n              start: \"clamp(top center)\",\r\n              end: \"clamp(bottom center)\",\r\n            },\r\n          });\r\n        },\r\n      });\r\n    });\r\n  });\r\n});\r\n\n\n//# sourceURL=webpack:///./src/gsap.js?\n}");
+
+/***/ })
+
+}]);
