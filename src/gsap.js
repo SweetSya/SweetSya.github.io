@@ -5,11 +5,87 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
+// Loading
+const loadingTimeline = gsap.timeline();
+
+let loadingSplit = Object;
+
+document.fonts.ready.then(() => {
+  loadingSplit.greetings = SplitText.create("#loading-screen p:nth-child(1)", {
+    type: "words",
+  });
+  loadingSplit.username = SplitText.create("#loading-screen h1", {
+    type: "words",
+  });
+  loadingSplit.job = SplitText.create("#loading-screen h2", {
+    type: "words",
+  });
+
+  loadingTimeline.from(loadingSplit.greetings.words, {
+    y: 20,
+    opacity: 0.9,
+    autoAlpha: 0,
+    stagger: 0.05,
+  });
+  loadingTimeline.from(loadingSplit.username.words, {
+    x: -20,
+    autoAlpha: 0,
+    stagger: 0.05,
+  });
+  loadingTimeline.from(loadingSplit.job.words, {
+    x: -20,
+    autoAlpha: 0,
+    stagger: 0.05,
+  });
+
+  loadingTimeline.from("#loading-screen button", {
+    y: 20,
+    opacity: 1,
+    autoAlpha: 0,
+    duration: 0.5,
+  });
+});
+
+document
+  .querySelector("#loading-screen button")
+  .addEventListener("click", () => {
+    loadingTimeline.to("#loading-screen button", {
+      y: 20,
+      autoAlpha: 0,
+      duration: 0.2,
+    });
+    loadingTimeline.to(loadingSplit.job.words, {
+      y: 20,
+      autoAlpha: 0,
+      stagger: 0.2,
+    });
+    loadingTimeline.to(loadingSplit.username.words, {
+      y: 20,
+      autoAlpha: 0,
+      stagger: 0.2,
+    });
+    loadingTimeline.to(loadingSplit.greetings.words, {
+      y: 20,
+      autoAlpha: 0,
+      stagger: 0.2,
+    });
+    loadingTimeline.to("#loading-screen", {
+      y: "-100%",
+      duration: 0.5,
+      ease: "power2.inOut",
+      onComplete: () => {
+        document.querySelector("#loading-screen").remove();
+      },
+    });
+  });
+
 // Pengalaman
 document.fonts.ready.then(() => {
   gsap.set("#pengalaman .gsap-section-title", { opacity: 1 });
 
-  let pengalamanTitle = document.querySelector("#pengalaman .gsap-section-title");
+  let pengalamanTitle = document.querySelector(
+    "#pengalaman .gsap-section-title"
+  );
 
   SplitText.create(pengalamanTitle, {
     type: "words,lines",

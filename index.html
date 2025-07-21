@@ -46,6 +46,27 @@
         loop
       ></video>
     </div>
+    <div id="loading-screen" class="fixed z-30 w-screen h-screen">
+      <div
+        class="flex items-center justify-center h-full w-full bg-black/90 backdrop-blur-sm"
+      >
+        <div class="wrapper flex flex-col items-center gap-4">
+          <p class="tracking-normal font-light opacity-90">
+            Selamat Data di Portofolio,
+          </p>
+          <h1 class="text-4xl font-semibold tracking-tighter pb-3 text-nowrap">
+            Sultan Herrysan
+          </h1>
+          <h2 class="text-2xl font-light tracking-normal">Web Developer</h2>
+          <br />
+          <button
+            class="px-8 py-3 border border-white rounded-full font-semibold hover:bg-white hover:text-black cursor-pointer"
+          >
+            Jelajahi Sekarang
+          </button>
+        </div>
+      </div>
+    </div>
     <main class="h-full">
       <div
         class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/90 overflow-x-hidden"
@@ -187,7 +208,10 @@
                 Pengalaman
               </h2>
               <br />
-              <div id="data-pengalaman" class="gsap-data flex flex-col gap-5"></div>
+              <div
+                id="data-pengalaman"
+                class="gsap-data flex flex-col gap-5"
+              ></div>
               <div id="keterampilan-scroll-to"></div>
             </div>
             <div
