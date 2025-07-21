@@ -47,3 +47,26 @@ gsap.to("#keterampilan .panel:nth-child(1)", {
     scrub: true,
   },
 });
+
+// Cursor follow
+const cursorObject = document.querySelector("#cursor-follow");
+window.addEventListener("mousemove", (e) => {
+  cursorFollow({
+    x: e.clientX,
+    y: e.clientY,
+  });
+});
+
+const cursorFollow = (client) => {
+  if (client) {
+    cursorObject.classList.remove('hidden')
+    gsap.to(cursorObject, {
+      duration: 0.5,
+      stagger: 0.3,
+      x: client.x - cursorObject.offsetWidth / 2,
+      y: client.y - cursorObject.offsetHeight / 2,
+    });
+  }
+};
+
+cursorFollow();
