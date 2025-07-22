@@ -50,14 +50,24 @@
       <div
         class="flex items-center justify-center h-full w-full bg-black/90 backdrop-blur-sm"
       >
-        <div class="wrapper flex flex-col items-center gap-4">
+        <div class="hidden wrapper flex flex-col items-center gap-4">
           <p class="tracking-normal font-light opacity-90">
             Selamat Data di Portofolio,
           </p>
-          <h1 class="text-4xl font-semibold tracking-tighter pb-3 text-nowrap">
-            Sultan Herrysan
-          </h1>
-          <h2 class="text-2xl font-light tracking-normal">Web Developer</h2>
+          <div class="relative h-12 w-full">
+            <h1
+              class="fixed left-1/2 -translate-x-1/2 text-4xl font-semibold tracking-tighter pb-3 text-nowrap"
+            >
+              Sultan Herrysan
+            </h1>
+          </div>
+          <div class="relative h-12 w-full">
+            <h2
+              class="fixed left-1/2 -translate-x-1/2 text-2xl font-light tracking-normal text-nowrap"
+            >
+              Web Developer
+            </h2>
+          </div>
           <br />
           <button
             class="px-8 py-3 border border-white rounded-full font-semibold hover:bg-white hover:text-black cursor-pointer"
@@ -69,7 +79,7 @@
     </div>
     <main class="h-full">
       <div
-        class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/90 overflow-x-hidden"
+        class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/80 overflow-x-hidden"
       >
         <aside class="relative w-full lg:w-2/5 z-10">
           <div
