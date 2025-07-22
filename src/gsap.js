@@ -6,12 +6,21 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
 // Loading
-window.addEventListener("load", () => {
-  document.querySelector("#loading-screen .wrapper").classList.remove("hidden");
+window.addEventListener("load", async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate loading delay
   const loadingTimeline = gsap.timeline();
-
+  document.querySelector("#loading-screen .loader-wrapper p").innerHTML =
+    "Assets loaded!";
+  await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate loading delay
+  loadingTimeline.to("#loading-screen .loader-wrapper", {
+    opacity: 0,
+    onStart: () => {},
+    onComplete: () => {
+      document.querySelector("#loading-screen .loader-wrapper").remove();
+    },
+  });
+  document.querySelector("#loading-screen .wrapper").classList.remove("hidden");
   let loadingSplit = Object;
-
   document.fonts.ready.then(() => {
     loadingSplit.greetings = SplitText.create(
       "#loading-screen p:nth-child(1)",
@@ -74,12 +83,18 @@ window.addEventListener("load", () => {
         autoAlpha: 0,
         stagger: 0.2,
       });
-      loadingTimeline.to("#loading-screen h1", {
+      loadingTimeline.to("#loading-screen .wrapper h1", {
         translateX: "50%",
         left: document.querySelector("aside h1").offsetLeft + "px",
         top: document.querySelector("aside h1").offsetTop + "px",
       });
-      loadingTimeline.to("#loading-screen h2", {
+      gsap.to("#loading-screen .wrapper h2:nth-child(1)", {
+        opacity: 0,
+      });
+      gsap.to("#loading-screen .wrapper h2:nth-child(2)", {
+        opacity: 1,
+      });
+      loadingTimeline.to("#loading-screen .wrapper h2:nth-child(2)", {
         translateX: "50%",
         left: document.querySelector("aside h2").offsetLeft + "px",
         top: document.querySelector("aside h2").offsetTop + "px",

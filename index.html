@@ -48,9 +48,15 @@
     </div>
     <div id="loading-screen" class="fixed z-30 w-screen h-screen">
       <div
+        class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
+      >
+        <div class="loader"></div>
+        <p>Loading assets..</p>
+      </div>
+      <div
         class="flex items-center justify-center h-full w-full bg-black/90 backdrop-blur-sm"
       >
-        <div class="hidden wrapper flex flex-col items-center gap-4">
+        <div class="hidden wrapper flex flex-col items-center gap-2">
           <p class="tracking-normal font-light opacity-90">
             Selamat Data di Portofolio,
           </p>
@@ -64,6 +70,11 @@
           <div class="relative h-12 w-full">
             <h2
               class="fixed left-1/2 -translate-x-1/2 text-2xl font-light tracking-normal text-nowrap"
+            >
+              { Web Developer }
+            </h2>
+            <h2
+              class="opacity-0 fixed left-1/2 -translate-x-1/2 text-2xl font-light tracking-normal text-nowrap"
             >
               Web Developer
             </h2>
