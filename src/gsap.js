@@ -1,9 +1,10 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { Observer } from "gsap/Observer";
 
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, Observer);
 
 // Loading
 window.addEventListener("load", async () => {
@@ -20,7 +21,7 @@ window.addEventListener("load", async () => {
     },
   });
   document.querySelector("#loading-screen .wrapper").classList.remove("hidden");
-  let loadingSplit = Object;
+  let loadingSplit = {};
   document.fonts.ready.then(() => {
     loadingSplit.greetings = SplitText.create(
       "#loading-screen p:nth-child(1)",
@@ -107,76 +108,91 @@ window.addEventListener("load", async () => {
           document.querySelector("#loading-screen").remove();
         },
       });
-    });
-});
-// Pengalaman
-document.fonts.ready.then(() => {
-  gsap.set("#pengalaman .gsap-section-title", { opacity: 1 });
-
-  let pengalamanTitle = document.querySelector(
-    "#pengalaman .gsap-section-title"
-  );
-
-  SplitText.create(pengalamanTitle, {
-    type: "words,lines",
-    mask: "lines",
-    linesClass: "line",
-    autoSplit: true,
-    onSplit: (instance) => {
-      return gsap.from(instance.lines, {
-        yPercent: 120,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: pengalamanTitle,
-          scrub: true,
-          start: "top center+=50",
-          end: "clamp(bottom center)",
-        },
+      loadingTimeline.to("body", {
+        overflowY: "auto",
       });
+    });
+  // Keterampilan GSAP
+  let gsapKeterampilans = gsap.utils.toArray("#keterampilan .panel");
+
+  const gsapKeterampilan = gsap.to(gsapKeterampilans, {
+    xPercent: -100 * (gsapKeterampilans.length - 1),
+    ease: "none",
+    scrollTrigger: {
+      start: "top center-=250",
+      trigger: "#keterampilan",
+      pin: true,
+      scrub: 1,
+      end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
     },
   });
-});
-let gsapDatas = gsap.utils.toArray(".gsap-data > div");
 
-gsap.set(gsapDatas, { opacity: 0, yPercent: 50 });
-const pengalamanTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#data-pengalaman",
-    start: "top center+=150",
-    end: "bottom center",
-    // scrub: true,
-  },
-});
-gsapDatas.forEach((el) => {
-  pengalamanTimeline.to(el, { opacity: 1, yPercent: 0, duration: 1 }, "+=0.2");
-});
+  // const gsapTimelineKeterampilan = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "#keterampilan .panel:nth-child(2)",
+  //     start: "top center",
+  //     end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
+  //     scrub: true,
+  //   },
+  // });
 
-// Keterampilan GSAP
-let gsapKeterampilans = gsap.utils.toArray("#keterampilan .panel");
-
-const gsapKeterampilan = gsap.to(gsapKeterampilans, {
-  xPercent: -100 * (gsapKeterampilans.length - 1),
-  ease: "none",
-  scrollTrigger: {
-    start: "top center-=250",
-    trigger: "#keterampilan",
-    pin: true,
-    scrub: 1,
-    end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
-  },
-});
-
-const gsapTimelineKeterampilan = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#keterampilan .panel:nth-child(2)",
-    start: "top center",
-    end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
-    scrub: true,
-  },
-});
-
-gsapTimelineKeterampilan.to("#keterampilan .showcase", {
-  duration: 2,
-  x: "-20%",
-  stagger: 0.2,
+  // gsapTimelineKeterampilan.to("#keterampilan .showcase", {
+  //   duration: 2,
+  //   x: "-20%",
+  //   stagger: 0.2,
+  // });
+  // Main Timeline
+  const mainTimeline = gsap.timeline();
+  // Tentang
+  mainTimeline.from("#tentang .pharagraphs", {
+    x: 20,
+    opacity: 0,
+    autoAlpha: 0,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: "power2.inOut",
+  });
+  // Scroll down timeline
+  mainTimeline.from(".initial-scroll-down", {
+    y: 20,
+    opacity: 0,
+    autoAlpha: 0,
+    duration: 0.5,
+    onStart: () => {
+      document
+        .querySelector(".initial-scroll-down > div")
+        .classList.add("bounce-animation");
+    },
+    ease: "power2.inOut",
+  });
+  mainTimeline.to(".initial-scroll-down > .absolute", {
+    opacity: 0,
+    duration: 2,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".initial-scroll-down > .absolute",
+      start: "top bottom-=100",
+      end: "bottom bottom-=200", // fade out as you scroll past
+      scrub: 1, // smooth animation based on scroll
+      onLeave: () => {
+        gsap.to("#tentang", {
+          opacity: 0,
+        });
+        gsap.to("#pengalaman", {
+          marginTop: "-60%",
+        });
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 500); // remove after fade out
+      },
+      onEnterBack: () => {
+        gsap.to("#tentang", {
+          opacity: 1,
+        });
+        gsap.to("#pengalaman", {
+          marginTop: 0,
+        });
+      },
+    },
+  });
 });

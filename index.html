@@ -27,7 +27,9 @@
     <!-- Taiwind -->
     <link rel="stylesheet" href="dist/style.css" />
   </head>
-  <body class="font-poppins text-white scroll-smooth overflow-x-hidden">
+  <body
+    class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden"
+  >
     <div
       id="cursor-follow"
       class="hidden fixed w-96 h-96 glow z-20 blur-2xl rounded-full"
@@ -58,7 +60,7 @@
       >
         <div class="hidden wrapper flex flex-col items-center gap-2">
           <p class="tracking-normal font-light opacity-90">
-            Selamat Data di Portofolio,
+            Selamat Datang di Portofolio,
           </p>
           <div class="relative h-12 w-full">
             <h1
@@ -94,7 +96,7 @@
       >
         <aside class="relative w-full lg:w-2/5 z-10">
           <div
-            class="static lg:fixed px-16 xl:px-32 pt-20 pb-2 lg:py-28 flex flex-col gap-8 lg:w-2/5"
+            class="hidden static lg:fixed px-16 xl:px-32 pt-20 pb-2 lg:py-28 lg:flex flex-col gap-8 lg:w-2/5"
           >
             <div class="flex-1">
               <section>
@@ -180,43 +182,53 @@
           class="flex-1 font-normal text-slate-100/80 tracking-normal relative w-full lg:w-3/5"
         >
           <div class="px-8 md:px-16 lg:px-24">
-            <div class="mt-12 lg:mt-24"></div>
-            <div id="tentang" class="scm-section">
+            <!-- <div class="mt-12 lg:mt-24"></div> -->
+            <div id="tentang" class="scm-section h-screen flex items-center">
               <!-- <h2 class="text-4xl tracking-tight pb-6 text-white">Tentang</h2> -->
-              <div class="pt-4">
-                Berawal di
-                <span class="text-white font-bold">SMA (tahun 2018)</span>, saya
-                diperkenalkan dunia Pemrograman oleh teman sebangku saya.
-                Bersama mengikuti ekstra TIK dengan julukan
-                <span class="text-white font-bold">CLUTIK</span>, saya
-                mempelajari pemahaman dasar tentang
-                <span class="italic">hardware</span> dan pemrograman
-                <span class="italic">software</span> menggunakan bahasa Pascal.
-                Sedikit membingungkan untuk seseorang yang sama sekali tidak
-                memiliki latar belakang apapun tentang dunia IT.
-              </div>
-              <br />
               <div>
-                Berbekal dari ilmu yang dimiliki, saya memberanikan diri untuk
-                terjun secara penuh pada bidang ini. Lalu disinilah saya
-                sekarang, mengerjakan proyek pengembangan program perangkat
-                lunak untuk
-                <span class="text-white font-bold">perorangan</span>,
-                <span class="text-white font-bold"
-                  >perusahaan kecil-menengah</span
-                >, hingga
-                <span class="text-white font-bold">perusahaan besar</span>.
-                Ketimbang merasa terbebani, saya selalu menaggap bahwa proyek
-                yang saya kerjakan merupakan
-                <span class="text-white font-bold"
-                  >permainan <span class="italic">problem-solving</span></span
-                >
-                jangka panjang.
+                <p class="pharagraphs pt-4">
+                  Berawal di
+                  <span class="text-white font-bold">SMA (tahun 2018)</span>,
+                  saya diperkenalkan dunia Pemrograman oleh teman sebangku saya.
+                  Bersama mengikuti ekstra TIK dengan julukan
+                  <span class="text-white font-bold">CLUTIK</span>, saya
+                  mempelajari pemahaman dasar tentang
+                  <span class="italic">hardware</span> dan pemrograman
+                  <span class="italic">software</span> menggunakan bahasa
+                  Pascal. Sedikit membingungkan untuk seseorang yang sama sekali
+                  tidak memiliki latar belakang apapun tentang dunia IT.
+                </p>
+                <br />
+                <p class="pharagraphs">
+                  Berbekal dari ilmu yang dimiliki, saya memberanikan diri untuk
+                  terjun secara penuh pada bidang ini. Lalu disinilah saya
+                  sekarang, mengerjakan proyek pengembangan program perangkat
+                  lunak untuk
+                  <span class="text-white font-bold">perorangan</span>,
+                  <span class="text-white font-bold"
+                    >perusahaan kecil-menengah</span
+                  >, hingga
+                  <span class="text-white font-bold">perusahaan besar</span>.
+                  Ketimbang merasa terbebani, saya selalu menaggap bahwa proyek
+                  yang saya kerjakan merupakan
+                  <span class="text-white font-bold"
+                    >permainan <span class="italic">problem-solving</span></span
+                  >
+                  jangka panjang.
+                </p>
+                <br />
+                <p class="pharagraphs">
+                  Saat ini saya lebih berfokus pada pengembangan diri untuk
+                  tidak terpaku pada zona nyaman :)
+                </p>
               </div>
-              <br />
-              <div>
-                Saat ini saya lebih berfokus pada pengembangan diri untuk tidak
-                terpaku pada zona nyaman :)
+            </div>
+            <div class="relative w-full initial-scroll-down">
+              <div
+                class="absolute text-center bottom-6 left-1/2 -translate-x-1/2"
+              >
+                <div class="mb-2">Scroll Down</div>
+                <i class="iconoir-arrow-down text-4xl"></i>
               </div>
             </div>
             <div
@@ -224,7 +236,7 @@
               class="mt-16 relative pt-16 md:pt-20 scm-section"
             >
               <h2
-                class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-6 text-white/40"
+                class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-6 pt-6 text-white/40"
               >
                 Pengalaman
               </h2>
