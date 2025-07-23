@@ -3,7 +3,20 @@
 @theme {
   --font-poppins: "Poppins", sans-serif;
 }
+/* For WebKit browsers (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  display: none;
+}
 
+/* For Internet Explorer and Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: none;
+}
 #keterampilan {
   mask-image: linear-gradient(
     to right,

@@ -28,9 +28,7 @@
     <link rel="stylesheet" href="dist/style.css" />
   </head>
   <!-- overflow-y-hidden -->
-  <body
-    class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden"
-  >
+  <body class="font-poppins text-white scroll-smooth overflow-x-hidden">
     <div id="bg-wrapper" class="fixed -z-20 w-screen h-screen">
       <img
         src="/dist/assets/bg.png"
@@ -39,7 +37,7 @@
       />
     </div>
     <!-- hidden delete -->
-    <div id="loading-screen" class="fixed z-30 w-screen h-screen">
+    <div id="loading-screen" class="hidden fixed z-30 w-screen h-screen">
       <div
         class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
       >
@@ -218,73 +216,82 @@
               </div>
             </div>
             <div class="relative w-full h-20 initial-scroll-down">
-              <div
-                class="absolute text-center left-1/2 -translate-x-1/2"
-              >
+              <div class="absolute text-center left-1/2 -translate-x-1/2">
                 <div class="mb-2">Scroll Down</div>
                 <i class="iconoir-arrow-down text-4xl"></i>
               </div>
             </div>
-            <div
-              id="pengalaman"
-              class="mt-16 relative pt-16 md:pt-20 scm-section"
-            >
-              <h2
-                class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-9 pt-6 text-white/40"
-              >
-                Pengalaman
-              </h2>
-              <br />
-              <div
-                id="data-pengalaman"
-                class="gsap-data flex flex-col gap-5"
-              ></div>
-              <div id="keterampilan-scroll-to"></div>
-            </div>
-            <div
-              id="keterampilan"
-              class="mt-12 relative scm-section h-[500px] w-[300%] flex flex-nowrap"
-            >
-              <div class="w-full !min-w-[300px] h-full panel">
-                <div
-                  class="w-full h-full flex justify-center items-center flex-col relative"
-                >
-                  <h2
-                    class="absolute text-4xl sm:text-6xl md:text-7xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold tracking-tight pb-6 text-white/40"
-                  >
-                    Kompetensi
-                  </h2>
-                </div>
+            <div class="opacity-0 relative w-full h-20 initial-scroll-up">
+              <div class="absolute text-center left-1/2 -translate-x-1/2">
+                <i class="iconoir-arrow-up text-4xl"></i>
+                <div class="mb-2">Scroll Up</div>
               </div>
-              <div class="w-[200%] h-full panel">
-                <div
-                  class="w-full h-full flex justify-center items-center flex-col relative"
+            </div>
+            <div id="content-wrapper" class="opacity-0">
+              <div
+                id="pengalaman"
+                class="mt-16 relative pt-16 md:pt-20 scm-section"
+              >
+                <h2
+                  class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-9 pt-6 text-white/40"
                 >
-                  <div class="flex flex-col">
-                    <div
-                      class="showcase bahasa database flex flex-nowrap justify-start overflow-visible"
-                    ></div>
-                    <div
-                      class="showcase framework workspace flex flex-nowrap justify-start overflow-visible"
-                    ></div>
-                    <div
-                      class="showcase bahasa database flex flex-row-reverse flex-nowrap justify-end overflow-visible"
-                    ></div>
-                    <div
-                      class="showcase framework workspace flex flex-row-reverse flex-nowrap justify-end overflow-visible"
-                    ></div>
+                  Pengalaman
+                </h2>
+                <br />
+                <div
+                  id="data-pengalaman"
+                  class="gsap-data flex flex-col gap-5"
+                ></div>
+                <div id="keterampilan-scroll-to"></div>
+              </div>
+              <div
+                id="keterampilan"
+                class="mt-12 relative scm-section h-[500px] w-[300%] flex flex-nowrap"
+              >
+                <div class="w-full !min-w-[300px] h-full panel">
+                  <div
+                    class="w-full h-full flex justify-center items-center flex-col relative"
+                  >
+                    <h2
+                      class="absolute text-4xl sm:text-6xl md:text-7xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold tracking-tight pb-6 text-white/40"
+                    >
+                      Kompetensi
+                    </h2>
+                  </div>
+                </div>
+                <div class="w-[200%] h-full panel">
+                  <div
+                    class="w-full h-full flex justify-center items-center flex-col relative"
+                  >
+                    <div class="flex flex-col">
+                      <div
+                        class="showcase bahasa database flex flex-nowrap justify-start overflow-visible"
+                      ></div>
+                      <div
+                        class="showcase framework workspace flex flex-nowrap justify-start overflow-visible"
+                      ></div>
+                      <div
+                        class="showcase bahasa database flex flex-row-reverse flex-nowrap justify-end overflow-visible"
+                      ></div>
+                      <div
+                        class="showcase framework workspace flex flex-row-reverse flex-nowrap justify-end overflow-visible"
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div id="proyek" class="mt-16 relative pt-16 md:pt-20 scm-section">
-              <h2
-                class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 right-0 font-extrabold tracking-tight pb-6 text-white/40"
+              <div
+                id="proyek"
+                class="mt-16 relative pt-16 md:pt-20 scm-section"
               >
-                Project
-              </h2>
-              <br />
-              <div id="data-proyek" class=""></div>
+                <h2
+                  class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 right-0 font-extrabold tracking-tight pb-6 text-white/40"
+                >
+                  Project
+                </h2>
+                <br />
+                <div id="data-proyek" class=""></div>
+              </div>
             </div>
             <div class="mb-24"></div>
           </div>

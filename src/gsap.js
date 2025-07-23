@@ -176,44 +176,66 @@ window.addEventListener("load", async () => {
       scrub: 1, // smooth animation based on scroll
       // markers: true,
       onLeave: () => {
-        gsap.to("#tentang", {
+        mainTimeline.to("#tentang", {
           opacity: 0,
-          height: 0,
-          overflow: "hidden",
-          duration: 1,
+          yPercent: -100,
+          duration: 0.5,
+          onStart: () => {
+            document.body.classList.add("overflow-y-hidden");
+          },
+          onComplete: () => {
+            document.querySelector("#tentang").classList.add("hidden");
+            window._scrollTop(0);
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 50); // remove after fade out
+            gsap.to("#content-wrapper", {
+              opacity: 1,
+              marginTop:
+                -1 * document.querySelector("#tentang").offsetHeight - 100,
+              duration: 0.5,
+              onComplete: () => {
+                setTimeout(() => {
+                  document.body.classList.remove("overflow-y-hidden");
+                }, 500);
+              },
+            });
+          },
         });
-        // gsap.to("#pengalaman", {
-        //   marginTop:
-        //     -1 * (document.querySelector("#tentang").offsetHeight - 200),
-        //   duration: 1,
-        //   opacity: 1,
-        // });
-        setTimeout(() => {
-          ScrollTrigger.refresh();
-        }, 500); // remove after fade out
-      },
-      onEnterBack: () => {
-        gsap.to("#tentang", {
-          opacity: 1,
-          marginTop: 0,
-          duration: 1,
-        });
-        // gsap.to("#pengalaman", {
-        //   marginTop: 0,
-        //   duration: 1,
-        // });
       },
     },
   });
   let observerHitTop = true;
   Observer.create({
     onChangeY: (self) => {
-      if (window.scrollY < 20 && !observerHitTop) {
+      if (window.scrollY == 0 && !observerHitTop) {
         console.log("Scroll hit the top");
+        gsap.to(".initial-scroll-up", {
+          opacity: 1,
+          autoAlpha: 1,
+          duration: 0.5,
+          onStart: () => {
+            document
+              .querySelector(".initial-scroll-up > div")
+              .classList.add("bounce-animation");
+          },
+          ease: "power2.inOut",
+        });
         observerHitTop = true;
       }
-      if (window.scrollY >= 20 && observerHitTop) {
+      if (window.scrollY != 0 && observerHitTop) {
         console.log("Scroll move from top");
+        gsap.to(".initial-scroll-up", {
+          opacity: 0,
+          autoAlpha: 0,
+          duration: 0.5,
+          onStart: () => {
+            document
+              .querySelector(".initial-scroll-up > div")
+              .classList.add("bounce-animation");
+          },
+          ease: "power2.inOut",
+        });
         observerHitTop = false;
       }
     },
