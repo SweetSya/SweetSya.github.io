@@ -31,11 +31,6 @@
   <body
     class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden"
   >
-  <!-- hidden delete -->
-    <div
-      id="cursor-follow"
-      class="fixed w-96 h-96 glow z-20 blur-2xl rounded-full"
-    ></div>
     <div id="bg-wrapper" class="fixed -z-20 w-screen h-screen">
       <img
         src="/dist/assets/bg.png"
@@ -43,7 +38,8 @@
         alt="Background Image"
       />
     </div>
-    <div id="loading-screen" class="hidden fixed z-30 w-screen h-screen">
+    <!-- hidden delete -->
+    <div id="loading-screen" class="fixed z-30 w-screen h-screen">
       <div
         class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
       >
