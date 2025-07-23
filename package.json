@@ -2,7 +2,10 @@
   "scripts": {
     "dev:css": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/style.css -o ./dist/style.css --watch",
     "dev:js": "npx webpack --watch",
-    "dev": "npm-run-all --parallel dev:css dev:js"
+    "dev": "npm-run-all --parallel dev:css dev:js",
+    "build:css": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/style.css -o ./dist/style.css",
+    "build:js": "npx webpack --mode production",
+    "build": "npm-run-all build:css build:js"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",

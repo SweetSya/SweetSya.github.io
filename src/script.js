@@ -20,7 +20,7 @@ const initiatePengalaman = (data) => {
         <div class="text-sm tracking-wide mb-2 opacity-80 font-semibold">
         ` +
       item.tahun +
-      `
+    `
         </div>
         <a href="` +
       item.link +
