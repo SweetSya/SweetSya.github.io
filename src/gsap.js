@@ -12,7 +12,6 @@ window.addEventListener("load", async () => {
   const loadingTimeline = gsap.timeline();
   document.querySelector("#loading-screen .loader-wrapper p").innerHTML =
     "Assets loaded!";
-  await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate loading delay
   loadingTimeline.to("#loading-screen .loader-wrapper", {
     opacity: 0,
     onStart: () => {},
@@ -20,6 +19,7 @@ window.addEventListener("load", async () => {
       document.querySelector("#loading-screen .loader-wrapper").remove();
     },
   });
+  await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate loading delay
   document.querySelector("#loading-screen .wrapper").classList.remove("hidden");
   let loadingSplit = {};
   document.fonts.ready.then(() => {
@@ -127,20 +127,6 @@ window.addEventListener("load", async () => {
     },
   });
 
-  // const gsapTimelineKeterampilan = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: "#keterampilan .panel:nth-child(2)",
-  //     start: "top center",
-  //     end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
-  //     scrub: true,
-  //   },
-  // });
-
-  // gsapTimelineKeterampilan.to("#keterampilan .showcase", {
-  //   duration: 2,
-  //   x: "-20%",
-  //   stagger: 0.2,
-  // });
   // Main Timeline
   const mainTimeline = gsap.timeline();
   // Tentang
@@ -153,8 +139,22 @@ window.addEventListener("load", async () => {
     ease: "power2.inOut",
   });
   // Scroll down timeline
+  // Check for initial-scroll-down bottom placement
+  let propertyInitialScrollFrom;
+  if (
+    document.querySelector("#tentang .wrapper").getBoundingClientRect().bottom >
+    window.innerHeight - 100
+  ) {
+    console.log("Mobile or Tablet");
+    mainTimeline.to(".initial-scroll-down", {
+      y: 40,
+    });
+  } else {
+    mainTimeline.to(".initial-scroll-down", {
+      y: -90,
+    });
+  }
   mainTimeline.from(".initial-scroll-down", {
-    y: 20,
     opacity: 0,
     autoAlpha: 0,
     duration: 0.5,
@@ -170,17 +170,24 @@ window.addEventListener("load", async () => {
     duration: 2,
     ease: "none",
     scrollTrigger: {
-      trigger: ".initial-scroll-down > .absolute",
+      trigger: ".initial-scroll-down",
       start: "top bottom-=100",
       end: "bottom bottom-=200", // fade out as you scroll past
       scrub: 1, // smooth animation based on scroll
+      // markers: true,
       onLeave: () => {
         gsap.to("#tentang", {
           opacity: 0,
+          height: 0,
+          overflow: "hidden",
+          duration: 1,
         });
-        gsap.to("#pengalaman", {
-          marginTop: "-60%",
-        });
+        // gsap.to("#pengalaman", {
+        //   marginTop:
+        //     -1 * (document.querySelector("#tentang").offsetHeight - 200),
+        //   duration: 1,
+        //   opacity: 1,
+        // });
         setTimeout(() => {
           ScrollTrigger.refresh();
         }, 500); // remove after fade out
@@ -188,11 +195,30 @@ window.addEventListener("load", async () => {
       onEnterBack: () => {
         gsap.to("#tentang", {
           opacity: 1,
-        });
-        gsap.to("#pengalaman", {
           marginTop: 0,
+          duration: 1,
         });
+        // gsap.to("#pengalaman", {
+        //   marginTop: 0,
+        //   duration: 1,
+        // });
       },
     },
   });
+  let observerHitTop = true;
+  Observer.create({
+    onChangeY: (self) => {
+      if (window.scrollY < 20 && !observerHitTop) {
+        console.log("Scroll hit the top");
+        observerHitTop = true;
+      }
+      if (window.scrollY >= 20 && observerHitTop) {
+        console.log("Scroll move from top");
+        observerHitTop = false;
+      }
+    },
+  });
+  // window.addEventListener("resize", function () {
+  //   ScrollTrigger.refresh();
+  // });
 });

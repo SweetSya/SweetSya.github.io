@@ -27,9 +27,11 @@
     <!-- Taiwind -->
     <link rel="stylesheet" href="dist/style.css" />
   </head>
+  <!-- overflow-y-hidden -->
   <body
-    class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden"
+    class="font-poppins text-white scroll-smooth overflow-x-hidden "
   >
+  <!-- hidden delete -->
     <div
       id="cursor-follow"
       class="hidden fixed w-96 h-96 glow z-20 blur-2xl rounded-full"
@@ -40,15 +42,8 @@
         class="h-screen w-screen object-cover"
         alt="Background Image"
       />
-      <video
-        src="/dist/assets/bg.mp4"
-        class="hidden h-screen w-screen object-cover"
-        muted
-        autoplay
-        loop
-      ></video>
     </div>
-    <div id="loading-screen" class="fixed z-30 w-screen h-screen">
+    <div id="loading-screen" class="hidden fixed z-30 w-screen h-screen">
       <div
         class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
       >
@@ -56,7 +51,7 @@
         <p>Loading assets..</p>
       </div>
       <div
-        class="flex items-center justify-center h-full w-full bg-black/90 backdrop-blur-sm"
+        class="flex items-center justify-center h-full w-full bg-black backdrop-blur-sm"
       >
         <div class="hidden wrapper flex flex-col items-center gap-2">
           <p class="tracking-normal font-light opacity-90">
@@ -92,7 +87,7 @@
     </div>
     <main class="h-full">
       <div
-        class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/80 overflow-x-hidden"
+        class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/90 overflow-x-hidden"
       >
         <aside class="relative w-full lg:w-2/5 z-10">
           <div
@@ -183,9 +178,12 @@
         >
           <div class="px-8 md:px-16 lg:px-24">
             <!-- <div class="mt-12 lg:mt-24"></div> -->
-            <div id="tentang" class="scm-section h-screen flex items-center">
+            <div
+              id="tentang"
+              class="scm-section min-h-screen flex items-center"
+            >
               <!-- <h2 class="text-4xl tracking-tight pb-6 text-white">Tentang</h2> -->
-              <div>
+              <div class="wrapper">
                 <p class="pharagraphs pt-4">
                   Berawal di
                   <span class="text-white font-bold">SMA (tahun 2018)</span>,
@@ -223,9 +221,9 @@
                 </p>
               </div>
             </div>
-            <div class="relative w-full initial-scroll-down">
+            <div class="relative w-full h-20 initial-scroll-down">
               <div
-                class="absolute text-center bottom-6 left-1/2 -translate-x-1/2"
+                class="absolute text-center left-1/2 -translate-x-1/2"
               >
                 <div class="mb-2">Scroll Down</div>
                 <i class="iconoir-arrow-down text-4xl"></i>
@@ -236,10 +234,11 @@
               class="mt-16 relative pt-16 md:pt-20 scm-section"
             >
               <h2
-                class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-6 pt-6 text-white/40"
+                class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-9 pt-6 text-white/40"
               >
                 Pengalaman
               </h2>
+              <br />
               <br />
               <div
                 id="data-pengalaman"

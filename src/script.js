@@ -20,7 +20,7 @@ const initiatePengalaman = (data) => {
         <div class="text-sm tracking-wide mb-2 opacity-80 font-semibold">
         ` +
       item.tahun +
-    `
+      `
         </div>
         <a href="` +
       item.link +
@@ -246,19 +246,8 @@ const isMobile = () => {
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
 };
-const initiateBackground = () => {
-  const bgWrapper = document.querySelector("#bg-wrapper");
-  // if mobile, use video background
-  // else use image background
-  if (isMobile()) {
-    bgWrapper.querySelector("video")?.remove();
-  } else {
-    bgWrapper.querySelector("video")?.classList.remove("hidden");
-    bgWrapper.querySelector("img")?.remove();
-  }
-};
+
 const start = async () => {
-  initiateBackground();
   initiatePengalaman(data.pengalaman);
   initiateKeterampilan(data.keterampilan);
   initiateProyek(data.proyek);
