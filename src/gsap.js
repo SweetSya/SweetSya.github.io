@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Observer } from "gsap/Observer";
+import { isMobile } from "./script";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, Observer);
 
@@ -84,22 +85,27 @@ window.addEventListener("load", async () => {
         autoAlpha: 0,
         stagger: 0.2,
       });
-      loadingTimeline.to("#loading-screen .wrapper h1", {
-        translateX: "50%",
-        left: document.querySelector("aside h1").offsetLeft + "px",
-        top: document.querySelector("aside h1").offsetTop + "px",
-      });
+      if (window.innerWidth > 1024) {
+        loadingTimeline.to("#loading-screen .wrapper h1", {
+          translateX: "50%",
+          left: document.querySelector("aside h1").offsetLeft + "px",
+          top: document.querySelector("aside h1").offsetTop + "px",
+        });
+      }
       gsap.to("#loading-screen .wrapper h2:nth-child(1)", {
         opacity: 0,
       });
       gsap.to("#loading-screen .wrapper h2:nth-child(2)", {
         opacity: 1,
       });
-      loadingTimeline.to("#loading-screen .wrapper h2:nth-child(2)", {
-        translateX: "50%",
-        left: document.querySelector("aside h2").offsetLeft + "px",
-        top: document.querySelector("aside h2").offsetTop + "px",
-      });
+      if (window.innerWidth > 1024) {
+        loadingTimeline.to("#loading-screen .wrapper h2:nth-child(2)", {
+          translateX: "50%",
+          left: document.querySelector("aside h2").offsetLeft + "px",
+          top: document.querySelector("aside h2").offsetTop + "px",
+        });
+      }
+
       loadingTimeline.to("#loading-screen", {
         opacity: 0,
         duration: 0.5,
@@ -126,179 +132,186 @@ window.addEventListener("load", async () => {
       end: () => "+=" + document.querySelector("#keterampilan").offsetWidth,
     },
   });
-
-  // Main Timeline
-  const mainTimeline = gsap.timeline();
-  // Tentang
-  mainTimeline.from("#tentang .pharagraphs", {
-    x: 20,
-    opacity: 0,
-    autoAlpha: 0,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: "power2.inOut",
-  });
-  // Scroll down timeline
-  // Check for initial-scroll-down bottom placement
-  let propertyInitialScrollFrom;
-  if (
-    document.querySelector("#tentang .wrapper").getBoundingClientRect().bottom >
-    window.innerHeight - 100
-  ) {
-    console.log("Mobile or Tablet");
-    mainTimeline.to(".initial-scroll-down", {
-      y: 40,
+  if (!isMobile()) {
+    console.log("Desktop");
+    // Main Timeline
+    const mainTimeline = gsap.timeline();
+    // Tentang
+    mainTimeline.from("#tentang .pharagraphs", {
+      x: 20,
+      opacity: 0,
+      autoAlpha: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "power2.inOut",
+    });
+    // Scroll down timeline
+    // Check for initial-scroll-down bottom placement
+    let propertyInitialScrollFrom;
+    if (
+      document.querySelector("#tentang .wrapper").getBoundingClientRect()
+        .bottom >
+      window.innerHeight - 100
+    ) {
+      console.log("Mobile or Tablet");
+      mainTimeline.to(".initial-scroll-down", {
+        y: 40,
+      });
+    } else {
+      mainTimeline.to(".initial-scroll-down", {
+        y: -90,
+      });
+    }
+    mainTimeline.from(".initial-scroll-down", {
+      opacity: 0,
+      autoAlpha: 0,
+      duration: 0.5,
+      onStart: () => {
+        document
+          .querySelector(".initial-scroll-down > div")
+          .classList.add("bounce-animation");
+      },
+      ease: "power2.inOut",
+    });
+    mainTimeline.to(".initial-scroll-down > .absolute", {
+      opacity: 0,
+      duration: 2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".initial-scroll-down",
+        start: "top bottom-=100",
+        end: "bottom bottom-=200", // fade out as you scroll past
+        scrub: 1, // smooth animation based on scroll
+        // markers: true,
+        onLeave: () => {
+          mainTimeline.to("#tentang", {
+            opacity: 0,
+            yPercent: -100,
+            duration: 0.5,
+            onStart: () => {
+              document.body.classList.add("overflow-y-hidden");
+            },
+            onComplete: () => {
+              document.querySelector("#tentang").classList.add("hidden");
+              document
+                .querySelector("#content-wrapper")
+                .classList.remove("hidden");
+              window._scrollTop(0);
+              setTimeout(() => {
+                ScrollTrigger.refresh();
+              }, 50); // remove after fade out
+              gsap.to("#content-wrapper", {
+                opacity: 1,
+                marginTop:
+                  -1 * document.querySelector("#tentang").offsetHeight - 100,
+                duration: 0.5,
+                onComplete: () => {
+                  setTimeout(() => {
+                    document.body.classList.remove("overflow-y-hidden");
+                  }, 500);
+                },
+              });
+            },
+          });
+        },
+      },
+    });
+    let observerHitTop = false;
+    Observer.create({
+      onChangeY: (self) => {
+        // Only reveal the initial-scroll-up when scrolled to the top
+        if (window.scrollY == 0 && !observerHitTop) {
+          console.log("Scroll hit the top");
+          gsap.to(".initial-scroll-up > div", {
+            opacity: 1,
+            autoAlpha: 1,
+            duration: 0.5,
+            onStart: () => {
+              document
+                .querySelector(".initial-scroll-up > div")
+                .classList.add("bounce-animation");
+            },
+            oncComplete: () => {
+              document
+                .querySelector(".initial-scroll-up")
+                .classList.add("continue-scroll-up");
+            },
+            ease: "power2.inOut",
+          });
+          observerHitTop = true;
+        }
+        // Scroll up to the first page
+        if (
+          window.scrollY == 0 &&
+          document.querySelector(".initial-scroll-up.continue-scroll-up")
+        ) {
+          document
+            .querySelector(".initial-scroll-up.continue-scroll-up")
+            .classList.remove("continue-scroll-up");
+          gsap.to(".initial-scroll-up > div", {
+            opacity: 0,
+            autoAlpha: 0,
+            duration: 0.5,
+            onComplete: () => {
+              document
+                .querySelector("#content-wrapper")
+                .classList.add("hidden");
+              document
+                .querySelector(".initial-scroll-up")
+                .classList.remove("continue-scroll-up");
+              document.querySelector("#tentang").classList.remove("hidden");
+              window._scrollTop(0);
+              gsap.to("#tentang", {
+                opacity: 1,
+                yPercent: 0,
+                duration: 0.5,
+                onComplete: () => {
+                  setTimeout(() => {
+                    document.body.classList.remove("overflow-y-hidden");
+                  }, 500);
+                },
+              });
+              gsap.to("initial-scroll-down > div", {
+                opacity: 1,
+                autoAlpha: 1,
+                duration: 0.5,
+              });
+              setTimeout(() => {
+                ScrollTrigger.refresh();
+              }, 50); // remove after fade out
+            },
+            ease: "power2.inOut",
+          });
+          gsap.to("#content-wrapper", {
+            opacity: 0,
+            marginTop: 0,
+            duration: 0.5,
+            onComplete: () => {
+              setTimeout(() => {
+                document.body.classList.add("overflow-y-hidden");
+              }, 500);
+            },
+          });
+        }
+        if (window.scrollY != 0 && observerHitTop) {
+          console.log("Scroll move from top");
+          gsap.to(".initial-scroll-up", {
+            opacity: 0,
+            autoAlpha: 0,
+            duration: 0.5,
+            onComplete: () => {
+              document
+                .querySelector(".initial-scroll-up > div")
+                .classList.remove("bounce-animation");
+            },
+          });
+          observerHitTop = false;
+        }
+      },
     });
   } else {
-    mainTimeline.to(".initial-scroll-down", {
-      y: -90,
-    });
+    console.log("Mobile or Tablet");
   }
-  mainTimeline.from(".initial-scroll-down", {
-    opacity: 0,
-    autoAlpha: 0,
-    duration: 0.5,
-    onStart: () => {
-      document
-        .querySelector(".initial-scroll-down > div")
-        .classList.add("bounce-animation");
-    },
-    ease: "power2.inOut",
-  });
-  mainTimeline.to(".initial-scroll-down > .absolute", {
-    opacity: 0,
-    duration: 2,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".initial-scroll-down",
-      start: "top bottom-=100",
-      end: "bottom bottom-=200", // fade out as you scroll past
-      scrub: 1, // smooth animation based on scroll
-      // markers: true,
-      onLeave: () => {
-        mainTimeline.to("#tentang", {
-          opacity: 0,
-          yPercent: -100,
-          duration: 0.5,
-          onStart: () => {
-            document.body.classList.add("overflow-y-hidden");
-          },
-          onComplete: () => {
-            document.querySelector("#tentang").classList.add("hidden");
-            document
-              .querySelector("#content-wrapper")
-              .classList.remove("hidden");
-            window._scrollTop(0);
-            setTimeout(() => {
-              ScrollTrigger.refresh();
-            }, 50); // remove after fade out
-            gsap.to("#content-wrapper", {
-              opacity: 1,
-              marginTop:
-                -1 * document.querySelector("#tentang").offsetHeight - 100,
-              duration: 0.5,
-              onComplete: () => {
-                setTimeout(() => {
-                  document.body.classList.remove("overflow-y-hidden");
-                }, 500);
-              },
-            });
-          },
-        });
-      },
-    },
-  });
-  let observerHitTop = false;
-  Observer.create({
-    onChangeY: (self) => {
-      // Only reveal the initial-scroll-up when scrolled to the top
-      if (window.scrollY == 0 && !observerHitTop) {
-        console.log("Scroll hit the top");
-        gsap.to(".initial-scroll-up > div", {
-          opacity: 1,
-          autoAlpha: 1,
-          duration: 0.5,
-          onStart: () => {
-            document
-              .querySelector(".initial-scroll-up > div")
-              .classList.add("bounce-animation");
-          },
-          oncComplete: () => {
-            document
-              .querySelector(".initial-scroll-up")
-              .classList.add("continue-scroll-up");
-          },
-          ease: "power2.inOut",
-        });
-        observerHitTop = true;
-      }
-      // Scroll up to the first page
-      if (
-        window.scrollY == 0 &&
-        document.querySelector(".initial-scroll-up.continue-scroll-up")
-      ) {
-        document
-          .querySelector(".initial-scroll-up.continue-scroll-up")
-          .classList.remove("continue-scroll-up");
-        gsap.to(".initial-scroll-up > div", {
-          opacity: 0,
-          autoAlpha: 0,
-          duration: 0.5,
-          onComplete: () => {
-            document.querySelector("#content-wrapper").classList.add("hidden");
-            document
-              .querySelector(".initial-scroll-up")
-              .classList.remove("continue-scroll-up");
-            document.querySelector("#tentang").classList.remove("hidden");
-            window._scrollTop(0);
-            gsap.to("#tentang", {
-              opacity: 1,
-              yPercent: 0,
-              duration: 0.5,
-              onComplete: () => {
-                setTimeout(() => {
-                  document.body.classList.remove("overflow-y-hidden");
-                }, 500);
-              },
-            });
-            gsap.to("initial-scroll-down > div", {
-              opacity: 1,
-              autoAlpha: 1,
-              duration: 0.5,
-            });
-            setTimeout(() => {
-              ScrollTrigger.refresh();
-            }, 50); // remove after fade out
-          },
-          ease: "power2.inOut",
-        });
-        gsap.to("#content-wrapper", {
-          opacity: 0,
-          marginTop: 0,
-          duration: 0.5,
-          onComplete: () => {
-            setTimeout(() => {
-              document.body.classList.add("overflow-y-hidden");
-            }, 500);
-          },
-        });
-      }
-      if (window.scrollY != 0 && observerHitTop) {
-        console.log("Scroll move from top");
-        gsap.to(".initial-scroll-up", {
-          opacity: 0,
-          autoAlpha: 0,
-          duration: 0.5,
-          onComplete: () => {
-            document
-              .querySelector(".initial-scroll-up > div")
-              .classList.remove("bounce-animation");
-          },
-        });
-        observerHitTop = false;
-      }
-    },
-  });
   window.addEventListener("resize", function () {
     ScrollTrigger.refresh();
   });

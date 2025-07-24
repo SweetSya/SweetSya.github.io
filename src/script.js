@@ -191,7 +191,7 @@ navlink.forEach((link) => {
 });
 
 const whichElementInViewport = () => {
-  var section = document.querySelectorAll(".scm-section");
+  var section = document.querySelectorAll(".scm-section:not(.hidden)");
   for (let x = section.length - 1; x >= 0; x--) {
     // anchor are position of the top of the page (0 at the start)
     var anchor = document.documentElement.scrollTop + 300;
@@ -263,3 +263,5 @@ const start = async () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   start();
 });
+
+export { isMobile };
