@@ -185,6 +185,9 @@ window.addEventListener("load", async () => {
           },
           onComplete: () => {
             document.querySelector("#tentang").classList.add("hidden");
+            document
+              .querySelector("#content-wrapper")
+              .classList.remove("hidden");
             window._scrollTop(0);
             setTimeout(() => {
               ScrollTrigger.refresh();
@@ -205,12 +208,13 @@ window.addEventListener("load", async () => {
       },
     },
   });
-  let observerHitTop = true;
+  let observerHitTop = false;
   Observer.create({
     onChangeY: (self) => {
+      // Only reveal the initial-scroll-up when scrolled to the top
       if (window.scrollY == 0 && !observerHitTop) {
         console.log("Scroll hit the top");
-        gsap.to(".initial-scroll-up", {
+        gsap.to(".initial-scroll-up > div", {
           opacity: 1,
           autoAlpha: 1,
           duration: 0.5,
@@ -219,9 +223,65 @@ window.addEventListener("load", async () => {
               .querySelector(".initial-scroll-up > div")
               .classList.add("bounce-animation");
           },
+          oncComplete: () => {
+            document
+              .querySelector(".initial-scroll-up")
+              .classList.add("continue-scroll-up");
+          },
           ease: "power2.inOut",
         });
         observerHitTop = true;
+      }
+      // Scroll up to the first page
+      if (
+        window.scrollY == 0 &&
+        document.querySelector(".initial-scroll-up.continue-scroll-up")
+      ) {
+        document
+          .querySelector(".initial-scroll-up.continue-scroll-up")
+          .classList.remove("continue-scroll-up");
+        gsap.to(".initial-scroll-up > div", {
+          opacity: 0,
+          autoAlpha: 0,
+          duration: 0.5,
+          onComplete: () => {
+            document.querySelector("#content-wrapper").classList.add("hidden");
+            document
+              .querySelector(".initial-scroll-up")
+              .classList.remove("continue-scroll-up");
+            document.querySelector("#tentang").classList.remove("hidden");
+            window._scrollTop(0);
+            gsap.to("#tentang", {
+              opacity: 1,
+              yPercent: 0,
+              duration: 0.5,
+              onComplete: () => {
+                setTimeout(() => {
+                  document.body.classList.remove("overflow-y-hidden");
+                }, 500);
+              },
+            });
+            gsap.to("initial-scroll-down > div", {
+              opacity: 1,
+              autoAlpha: 1,
+              duration: 0.5,
+            });
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 50); // remove after fade out
+          },
+          ease: "power2.inOut",
+        });
+        gsap.to("#content-wrapper", {
+          opacity: 0,
+          marginTop: 0,
+          duration: 0.5,
+          onComplete: () => {
+            setTimeout(() => {
+              document.body.classList.add("overflow-y-hidden");
+            }, 500);
+          },
+        });
       }
       if (window.scrollY != 0 && observerHitTop) {
         console.log("Scroll move from top");
@@ -229,18 +289,17 @@ window.addEventListener("load", async () => {
           opacity: 0,
           autoAlpha: 0,
           duration: 0.5,
-          onStart: () => {
+          onComplete: () => {
             document
               .querySelector(".initial-scroll-up > div")
-              .classList.add("bounce-animation");
+              .classList.remove("bounce-animation");
           },
-          ease: "power2.inOut",
         });
         observerHitTop = false;
       }
     },
   });
-  // window.addEventListener("resize", function () {
-  //   ScrollTrigger.refresh();
-  // });
+  window.addEventListener("resize", function () {
+    ScrollTrigger.refresh();
+  });
 });

@@ -206,6 +206,7 @@ const whichElementInViewport = () => {
     }
     // if the anchor is greater than the distance to the top of the section
     if (anchor > distanceToTop) {
+      console.log(section[x].id);
       // change the active side bar link
       changeNavClass(section, section[x].id, x);
       break;
