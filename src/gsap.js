@@ -194,7 +194,6 @@ window.addEventListener("load", async () => {
             document
               .querySelector("#content-wrapper")
               .classList.remove("hidden");
-            window._scrollTop(0);
             setTimeout(() => {
               ScrollTrigger.refresh();
             }, 50); // remove after fade out
@@ -256,7 +255,6 @@ window.addEventListener("load", async () => {
               .querySelector(".initial-scroll-up")
               .classList.remove("continue-scroll-up");
             document.querySelector("#tentang").classList.remove("hidden");
-            window._scrollTop(0);
             gsap.to("#tentang", {
               opacity: 1,
               yPercent: 0,
