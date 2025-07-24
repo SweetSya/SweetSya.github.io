@@ -85,26 +85,22 @@ window.addEventListener("load", async () => {
         autoAlpha: 0,
         stagger: 0.2,
       });
-      if (window.innerWidth > 1024) {
-        loadingTimeline.to("#loading-screen .wrapper h1", {
-          translateX: "50%",
-          left: document.querySelector("aside h1").offsetLeft + "px",
-          top: document.querySelector("aside h1").offsetTop + "px",
-        });
-      }
+      loadingTimeline.to("#loading-screen .wrapper h1", {
+        translateX: "50%",
+        left: document.querySelector("aside h1").offsetLeft + "px",
+        top: document.querySelector("aside h1").offsetTop + "px",
+      });
       gsap.to("#loading-screen .wrapper h2:nth-child(1)", {
         opacity: 0,
       });
       gsap.to("#loading-screen .wrapper h2:nth-child(2)", {
         opacity: 1,
       });
-      if (window.innerWidth > 1024) {
-        loadingTimeline.to("#loading-screen .wrapper h2:nth-child(2)", {
-          translateX: "50%",
-          left: document.querySelector("aside h2").offsetLeft + "px",
-          top: document.querySelector("aside h2").offsetTop + "px",
-        });
-      }
+      loadingTimeline.to("#loading-screen .wrapper h2:nth-child(2)", {
+        translateX: "50%",
+        left: document.querySelector("aside h2").offsetLeft + "px",
+        top: document.querySelector("aside h2").offsetTop + "px",
+      });
 
       loadingTimeline.to("#loading-screen", {
         opacity: 0,
@@ -192,8 +188,12 @@ window.addEventListener("load", async () => {
           onComplete: () => {
             document.querySelector("#tentang").classList.add("hidden");
             document
+              .querySelector(".initial-scroll-down")
+              .classList.add("hidden");
+            document
               .querySelector("#content-wrapper")
               .classList.remove("hidden");
+            window._scrollTop(0);
             setTimeout(() => {
               ScrollTrigger.refresh();
             }, 50); // remove after fade out
@@ -250,11 +250,14 @@ window.addEventListener("load", async () => {
           autoAlpha: 0,
           duration: 0.5,
           onComplete: () => {
-            document.querySelector("#content-wrapper").classList.add("hidden");
             document
               .querySelector(".initial-scroll-up")
               .classList.remove("continue-scroll-up");
             document.querySelector("#tentang").classList.remove("hidden");
+            document
+              .querySelector(".initial-scroll-down")
+              .classList.remove("hidden");
+            window._scrollTop(0);
             gsap.to("#tentang", {
               opacity: 1,
               yPercent: 0,

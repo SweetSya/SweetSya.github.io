@@ -191,7 +191,7 @@ navlink.forEach((link) => {
 });
 
 const whichElementInViewport = () => {
-  var section = document.querySelectorAll(".scm-section:not(.hidden)");
+  var section = document.querySelectorAll(".scm-section");
   for (let x = section.length - 1; x >= 0; x--) {
     // anchor are position of the top of the page (0 at the start)
     var anchor = document.documentElement.scrollTop + 300;
