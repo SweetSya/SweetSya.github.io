@@ -28,7 +28,9 @@
     <link rel="stylesheet" href="dist/style.css" />
   </head>
   <!-- overflow-y-hidden -->
-  <body class="font-poppins text-white scroll-smooth overflow-x-hidden">
+  <body
+    class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden"
+  >
     <div
       id="gsap-status"
       class="fixed z-50 top-0 right-0 hidden bg-white !text-black font-semibold p-3"
@@ -45,7 +47,7 @@
     <!-- hidden delete -->
     <div
       id="loading-screen"
-      class="hidden fixed z-30 w-screen h-screen overscroll-contain"
+      class="fixed z-30 w-screen h-screen overscroll-contain"
     >
       <div
         class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
@@ -234,7 +236,9 @@
                 </div>
               </div>
             </div>
-            <div class="relative w-full h-20 lg:h-32 flex items-center justify-center">
+            <div
+              class="relative w-full h-20 lg:h-32 flex items-center justify-center"
+            >
               <svg
                 class="opacity-0 z-index-[500] rotate-180"
                 id="paper-plane"

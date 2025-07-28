@@ -256,7 +256,7 @@ window.addEventListener("load", async () => {
   window.addEventListener("resize", function () {
     ScrollTrigger.refresh();
   });
-  document.querySelector("#gsap-status").classList.remove("hidden");
+  // document.querySelector("#gsap-status").classList.remove("hidden");
 });
 
 const rx = window.innerWidth < 1000 ? window.innerWidth / 1200 : 1;
