@@ -28,7 +28,13 @@
     <link rel="stylesheet" href="dist/style.css" />
   </head>
   <!-- overflow-y-hidden -->
-  <body class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden">
+  <body class="font-poppins text-white scroll-smooth overflow-x-hidden">
+    <div
+      id="gsap-status"
+      class="fixed z-50 top-0 right-0 hidden bg-white !text-black font-semibold p-3"
+    >
+      GSAP Ready
+    </div>
     <div id="bg-wrapper" class="fixed -z-20 w-screen h-screen">
       <img
         src="/dist/assets/bg.png"
@@ -37,7 +43,10 @@
       />
     </div>
     <!-- hidden delete -->
-    <div id="loading-screen" class="fixed z-30 w-screen h-screen overscroll-contain">
+    <div
+      id="loading-screen"
+      class="hidden fixed z-30 w-screen h-screen overscroll-contain"
+    >
       <div
         class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
       >
@@ -174,8 +183,9 @@
             <!-- <div class="mt-12 lg:mt-24"></div> -->
             <div
               id="tentang"
-              class="scm-section lg:min-h-screen flex items-center"
+              class="scm-section lg:min-h-screen flex flex-col justify-between items-center"
             >
+              <div></div>
               <!-- <h2 class="text-4xl tracking-tight pb-6 text-white">Tentang</h2> -->
               <div class="wrapper">
                 <p class="pharagraphs pt-4">
@@ -214,19 +224,45 @@
                   tidak terpaku pada zona nyaman :)
                 </p>
               </div>
-            </div>
-            <!-- <div class="relative w-full h-20 initial-scroll-down">
-              <div class="absolute text-center left-1/2 -translate-x-1/2">
-                <div class="mb-2">Scroll Down</div>
-                <i class="iconoir-arrow-down text-4xl"></i>
+              <div
+                id="scroll-down-arrow"
+                class="relative w-full h-20 my-6 bounce-animation"
+              >
+                <div class="absolute text-center left-1/2 -translate-x-1/2">
+                  <div class="mb-2">Scroll Down</div>
+                  <i class="iconoir-arrow-down text-4xl"></i>
+                </div>
               </div>
             </div>
-            <div class="relative w-full h-20 initial-scroll-up">
-              <div class="opacity-0 absolute text-center left-1/2 -translate-x-1/2">
-                <i class="iconoir-arrow-up text-4xl"></i>
-                <div class="mb-2">Scroll Up Again</div>
-              </div>
-            </div> -->
+            <div class="relative w-full h-20 lg:h-32 flex items-center justify-center">
+              <svg
+                class="opacity-0 z-index-[500] rotate-180"
+                id="paper-plane"
+                height="90px"
+                width="90px"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512 512"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: #fff;
+                  }
+                </style>
+                <g>
+                  <polygon
+                    class="st0"
+                    points="121.71,463.73 211.257,394.524 121.71,333.638 	"
+                  />
+                  <polygon
+                    class="st0"
+                    points="0,216.127 122.938,305.26 465.837,86.043 152.628,326.791 335.73,459.532 512,48.27 	"
+                  />
+                </g>
+              </svg>
+            </div>
             <!-- Opacity-0 -->
             <div id="content-wrapper" class="">
               <div
