@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -29,20 +29,18 @@
   </head>
   <!-- overflow-y-hidden -->
   <body
-    class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden"
+    class="font-poppins text-white scroll-smooth overflow-x-hidden overflow-y-hidden bg-black"
   >
-    <!-- <div
-      id="gsap-status"
-      class="fixed z-50 top-0 right-0 hidden bg-white !text-black font-semibold p-3"
-    >
-      GSAP Ready
-    </div> -->
-    <div id="bg-wrapper" class="fixed -z-20 w-screen h-screen">
-      <img
-        src="/dist/assets/bg.png"
-        class="h-screen w-screen object-cover"
-        alt="Background Image"
-      />
+    <!-- Language Selector -->
+    <div class="fixed right-2 top-2 z-999">
+      <div
+        class="border border-white text-white rounded-bl-md py-1 px-2 focus:outline-none cursor-pointer"
+      >
+        <select class="language-selector bg-transparent">
+          <option value="id">ID</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
     </div>
     <!-- hidden delete -->
     <div
@@ -53,13 +51,13 @@
         class="loader-wrapper fixed z-50 w-screen h-screen flex items-center justify-center flex-col"
       >
         <div class="loader"></div>
-        <p>Loading assets..</p>
+        <p class="lang" data-key="loading">Loading assets..</p>
       </div>
       <div
         class="flex items-center justify-center h-full w-full bg-black backdrop-blur-sm"
       >
-        <div class="hidden wrapper flex flex-col items-center gap-2">
-          <p class="tracking-normal font-light opacity-90">
+        <div class="hidden wrapper flex-col items-center gap-2">
+          <p class="lang tracking-normal font-light opacity-90" data-key="welcome">
             Selamat Datang di Portofolio,
           </p>
           <div class="relative h-12 w-full">
@@ -73,17 +71,17 @@
             <h2
               class="fixed left-1/2 -translate-x-1/2 text-2xl font-light tracking-normal text-nowrap"
             >
-              { Web Developer }
+              { <span class="lang" data-key="subtitle">Web Developer</span> }
             </h2>
             <h2
-              class="opacity-0 fixed left-1/2 -translate-x-1/2 text-2xl font-light tracking-normal text-nowrap"
+              class="lang opacity-0 fixed left-1/2 -translate-x-1/2 text-2xl font-light tracking-normal text-nowrap" data-key="subtitle"
             >
               Web Developer
             </h2>
           </div>
           <br />
           <button
-            class="px-8 py-3 border border-white rounded-full font-semibold hover:bg-white hover:text-black cursor-pointer"
+            class="lang px-8 py-3 w-full border border-white rounded-full font-semibold hover:bg-white hover:text-black cursor-pointer" data-key="explore"
           >
             Jelajahi Sekarang
           </button>
@@ -92,24 +90,30 @@
     </div>
     <main class="h-full">
       <div
-        class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/90 overflow-x-hidden"
+        class="relative h-full flex flex-wrap bg-gradient-to-r from-black to-black/95 overflow-x-hidden"
       >
         <aside class="relative w-full lg:w-2/5 z-10">
           <div
             class="static lg:fixed px-16 xl:px-32 pt-20 py-10 lg:py-28 lg:flex flex-col gap-8 lg:w-2/5"
           >
-            <div class="flex-1 pb-12 lg:pb-0">
+            <div class="flex-1 pb-10 lg:pb-0">
               <section>
+                <h2 class="lang text-2xl font-light font-semibold tracking-normal" data-key="subtitle">
+                  Web Developer
+                </h2>
                 <h1
                   class="text-4xl font-semibold tracking-tighter pb-3 text-nowrap"
                 >
                   Sultan Herrysan
                 </h1>
-                <h2 class="text-2xl font-light tracking-normal">
-                  Web Developer
-                </h2>
+                <div class="flex items-center gap-3 pb-2 opacity-80 text-sm">
+                  <i class="iconoir-mail"></i>
+                  <a href="mailto:herrysans12@gmail.com"
+                    >herrysans12@gmail.com</a
+                  >
+                </div>
                 <br />
-                <p class="tracking-normal font-light opacity-90">
+                <p class="lang tracking-normal font-light opacity-90" data-key="motto">
                   Ikhtiar dulu, masalah hasil sudah ada yang mengatur.
                 </p>
               </section>
@@ -122,7 +126,7 @@
                     id="nav-tentang"
                     class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200 nav-bars"
                   ></span>
-                  <div>Tentang</div> </a
+                  <div class="lang" data-key="nav-about">Tentang</div> </a
                 ><a
                   href="#pengalaman"
                   class="nav-link group flex py-1 px-2 items-center gap-5 font-semibold tracking-wide opacity-70 hover:opacity-100 transition-all duration-200"
@@ -131,7 +135,7 @@
                     id="nav-pengalaman"
                     class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200 nav-bars"
                   ></span>
-                  <div>Pengalaman</div>
+                  <div class="lang" data-key="nav-experience">Pengalaman</div>
                 </a>
                 <a
                   href="#keterampilan-scroll-to"
@@ -141,7 +145,7 @@
                     id="nav-keterampilan"
                     class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200 nav-bars"
                   ></span>
-                  <div>Kompetensi</div> </a
+                  <div class="lang" data-key="nav-competency">Kompetensi</div> </a
                 ><a
                   href="#proyek"
                   class="nav-link group flex py-1 px-2 items-center gap-5 font-semibold tracking-wide opacity-70 hover:opacity-100 transition-all duration-200"
@@ -150,11 +154,12 @@
                     id="nav-proyek"
                     class="group-hover:max-w-24 flex-1 h-[1px] max-w-6 bg-slate-50 transition-all duration-200 nav-bars"
                   ></span>
-                  <div>Project</div>
+                  <div class="lang" data-key="nav-project">Project</div>
                 </a>
               </nav>
             </div>
-            <div class="flex gap-3">
+
+            <div class="flex gap-3 mb-8 lg:mb-0">
               <a href="https://github.com/SweetSya">
                 <i
                   class="hover:bg-slate-50 hover:text-slate-900 rounded-full iconoir-github-circle before:w-7 before:h-7 transition-all duration-150 p-1"
@@ -176,6 +181,18 @@
                 ></i>
               </a>
             </div>
+
+            <div class="flex flex-col gap-8">
+              <div class="h-full">
+                <a
+                  href="/dist/assets/Sultan_Herrysan_CV.pdf"
+                  target="_blank"
+                  class="lang px-8 py-3 border text-center border-white rounded-full font-semibold hover:bg-white hover:text-black cursor-pointer" data-key="download-cv"
+                >
+                  Download CV
+                </a>
+              </div>
+            </div>
           </div>
         </aside>
         <section
@@ -185,87 +202,20 @@
             <!-- <div class="mt-12 lg:mt-24"></div> -->
             <div
               id="tentang"
-              class="scm-section lg:min-h-screen flex flex-col justify-between items-center"
+              class="scm-section lg:min-h-screen flex flex-col justify-center items-center"
             >
               <div></div>
               <!-- <h2 class="text-4xl tracking-tight pb-6 text-white">Tentang</h2> -->
-              <div class="wrapper">
-                <p class="pharagraphs pt-4">
-                  Berawal di
-                  <span class="text-white font-bold">SMA (tahun 2018)</span>,
-                  saya diperkenalkan dunia Pemrograman oleh teman sebangku saya.
-                  Bersama mengikuti ekstra TIK dengan julukan
-                  <span class="text-white font-bold">CLUTIK</span>, saya
-                  mempelajari pemahaman dasar tentang
-                  <span class="italic">hardware</span> dan pemrograman
-                  <span class="italic">software</span> menggunakan bahasa
-                  Pascal. Sedikit membingungkan untuk seseorang yang sama sekali
-                  tidak memiliki latar belakang apapun tentang dunia IT.
-                </p>
-                <br />
-                <p class="pharagraphs">
-                  Berbekal dari ilmu yang dimiliki, saya memberanikan diri untuk
-                  terjun secara penuh pada bidang ini. Lalu disinilah saya
-                  sekarang, mengerjakan proyek pengembangan program perangkat
-                  lunak untuk
-                  <span class="text-white font-bold">perorangan</span>,
-                  <span class="text-white font-bold"
-                    >perusahaan kecil-menengah</span
-                  >, hingga
-                  <span class="text-white font-bold">perusahaan besar</span>.
-                  Ketimbang merasa terbebani, saya selalu menaggap bahwa proyek
-                  yang saya kerjakan merupakan
-                  <span class="text-white font-bold"
-                    >permainan <span class="italic">problem-solving</span></span
-                  >
-                  jangka panjang.
-                </p>
-                <br />
-                <p class="pharagraphs">
-                  Saat ini saya lebih berfokus pada pengembangan diri untuk
-                  tidak terpaku pada zona nyaman :)
-                </p>
-              </div>
+              <div id="data-tentang" class="wrapper"></div>
               <div
                 id="scroll-down-arrow"
-                class="relative w-full h-20 my-6 bounce-animation"
+                class="fixed w-full -bottom-10 h-40 bg-gradient-to-b from-transparent from-0% to-black via-5% flex items-start justify-center duration-500"
               >
-                <div class="absolute text-center left-1/2 -translate-x-1/2">
-                  <div class="mb-2">Scroll Down</div>
+                <div class="absolute text-center mt-10 bounce-animation">
+                  <div class="lang mb-2" data-key="scroll-down">Scroll Down</div>
                   <i class="iconoir-arrow-down text-4xl"></i>
                 </div>
               </div>
-            </div>
-            <div
-              class="relative w-full h-20 lg:h-32 flex items-center justify-center"
-            >
-              <svg
-                class="opacity-0 z-index-[500] rotate-180"
-                id="paper-plane"
-                height="90px"
-                width="90px"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 512 512"
-                xml:space="preserve"
-              >
-                <style type="text/css">
-                  .st0 {
-                    fill: #fff;
-                  }
-                </style>
-                <g>
-                  <polygon
-                    class="st0"
-                    points="121.71,463.73 211.257,394.524 121.71,333.638 	"
-                  />
-                  <polygon
-                    class="st0"
-                    points="0,216.127 122.938,305.26 465.837,86.043 152.628,326.791 335.73,459.532 512,48.27 	"
-                  />
-                </g>
-              </svg>
             </div>
             <!-- Opacity-0 -->
             <div id="content-wrapper" class="">
@@ -274,7 +224,7 @@
                 class="mt-16 relative pt-16 md:pt-20 scm-section"
               >
                 <h2
-                  class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-9 pt-6 text-white/40"
+                  class="lang gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 left-0 font-extrabold tracking-tight pb-9 pt-6 text-white/40" data-key="title-experience"
                 >
                   Pengalaman
                 </h2>
@@ -294,7 +244,7 @@
                     class="w-full h-full flex justify-center items-center flex-col relative"
                   >
                     <h2
-                      class="absolute text-4xl sm:text-6xl md:text-7xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold tracking-tight pb-6 text-white/40"
+                      class="lang absolute text-4xl sm:text-6xl md:text-7xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold tracking-tight pb-6 text-white/40" data-key="title-competency"
                     >
                       Kompetensi
                     </h2>
@@ -325,11 +275,17 @@
                 id="proyek"
                 class="mt-16 relative pt-16 md:pt-20 scm-section"
               >
-                <h2
-                  class="gsap-section-title absolute text-4xl sm:text-6xl md:text-7xl top-0 right-0 font-extrabold tracking-tight pb-6 text-white/40"
-                >
-                  Project
-                </h2>
+                <div class="flex justify-between items-center pb-6">
+                  <h2
+                    class="lang gsap-section-title text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white/40" data-key="title-project"
+                  >
+                    Project
+                  </h2>
+                  <a href="projects.html" class="flex items-center gap-2 hover:opacity-75 transition-opacity text-white text-sm md:text-base border border-white/20 rounded-full px-4 py-2 hover:bg-white/10 z-10">
+                    <span class="lang" data-key="nav-view-all">View All</span>
+                    <i class="iconoir-arrow-right"></i>
+                  </a>
+                </div>
                 <br />
                 <div id="data-proyek" class=""></div>
               </div>
