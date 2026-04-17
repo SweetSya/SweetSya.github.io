@@ -26,19 +26,19 @@ body {
   );
 }
 #data-pengalaman:hover > div:not(:hover) {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 #data-pengalaman:hover > div:hover a {
   color: rgb(97, 245, 225);
 }
 #data-proyek:hover > div:not(:hover) {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 #data-proyek:hover > div:hover span {
   color: rgb(97, 245, 225);
 }
 .glow {
-  opacity: 0.5;
+  opacity: 0.7;
   background: #fff;
 }
 

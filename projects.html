@@ -3,8 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SweetSya | All Projects</title>
+    <title>SweetSya | All Projects | Sultan Heryrsan</title>
+    <!-- SEO -->
+    <!-- Primary Meta -->
+    <meta name="title" content="SweetSya | All Projects | Sultan Heryrsan" />
+    <meta
+      name="description"
+      content="Hi, I'm Herry — a Full Stack Engineer with a degree in Information Systems. I build functional, user-focused web applications using modern technologies. Explore my portfolio and projects."
+    />
+    <meta
+      name="keywords"
+      content="Sultan Herrysan, SweetSya, Full Stack Engineer, Web Developer, Laravel, Vue, Portfolio, Surabaya, Indonesia"
+    />
+    <meta name="author" content="Sultan Hakim Herrysan" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sweetsya.id/projects.html" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sweetsya.id/projects.html" />
+    <meta
+      property="og:title"
+      content="SweetSya | All Projects | Sultan Heryrsan"
+    />
+    <meta
+      property="og:description"
+      content="Hi, I'm Herry — a Full Stack Engineer who enjoys building functional, user-focused web apps. Check out my portfolio and projects."
+    />
+    <meta
+      property="og:image"
+      content="https://sweetsya.id/dist/assets/og-image.jpg"
+    />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="SweetSya | Portfolio" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://sweetsya.id/" />
+    <meta name="twitter:site" content="@SweetW__" />
+    <meta name="twitter:creator" content="@SweetW__" />
+    <meta
+      name="twitter:title"
+      content="Sultan Hakim Herrysan — Full Stack Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Hi, I'm Herry — a Full Stack Engineer who enjoys building functional, user-focused web apps. Check out my portfolio and projects."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sweetsya.id/dist/assets/og-image.jpg"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sultan Hakim Herrysan",
+        "alternateName": ["Herry", "Sultan", "SweetSya"],
+        "url": "https://sweetsya.id/",
+        "sameAs": [
+          "https://github.com/SweetSya",
+          "https://www.linkedin.com/in/sultan-herrysan-706b47176/",
+          "https://twitter.com/SweetW__",
+          "https://www.instagram.com/sultanherrysan/"
+        ],
+        "jobTitle": "Full Stack Engineer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universitas Dinamika"
+        },
+        "knowsAbout": [
+          "Web Development",
+          "Laravel",
+          "Vue.js",
+          "Python",
+          "Full Stack Engineering"
+        ],
+        "email": "herrysans12@gmail.com",
+        "description": "Full Stack Engineer with a Bachelor's degree in Information Systems. Builds functional, user-focused web applications using modern technologies."
+      }
+    </script>
+    <!-- SEO -->
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,12 +110,13 @@
     <link rel="stylesheet" href="dist/style.css" />
   </head>
   <body
+    id="project-page"
     class="font-poppins text-white scroll-smooth overflow-x-hidden bg-black min-h-screen flex flex-col"
   >
     <!-- Language Selector -->
-    <div class="fixed right-2 top-2 z-[999]">
+    <div class="fixed left-2 right-auto lg:left-auto lg:right-2 top-2.5 z-999">
       <div
-        class="border border-white text-white rounded-md py-1 px-2 focus:outline-none cursor-pointer bg-black/50 backdrop-blur-md"
+        class="border border-white text-white rounded-bl-md py-1 px-2 focus:outline-none cursor-pointer"
       >
         <select class="language-selector bg-transparent">
           <option value="id">ID</option>
@@ -41,23 +124,37 @@
         </select>
       </div>
     </div>
-    
-    <header class="py-8 px-6 md:px-16 w-full border-b border-white/10 flex justify-between items-center bg-black/80 backdrop-blur-md sticky top-0 z-50">
-      <a href="index.html" class="flex items-center gap-2 hover:opacity-75 transition-opacity text-white">
-        <i class="iconoir-arrow-left text-xl"></i>
-        <span class="font-semibold tracking-wide lang" data-key="nav-about">Back</span>
-      </a>
-      <h1 class="text-2xl font-bold tracking-tighter lang" data-key="title-project">Project</h1>
-    </header>
 
-    <main class="w-full max-w-7xl mx-auto px-6 md:px-16 py-12 flex-1">
+    <header
+      class="py-3 ps-20 md:ps-auto px-6 w-full lg:px-20 bg-black/60 backdrop-blur-md fixed top-0 z-50"
+    >
+      <div class="w-full flex justify-between items-center">
+        <a
+          href="index.html"
+          class="flex items-center gap-2 hover:opacity-75 transition-opacity text-white"
+        >
+          <i class="iconoir-arrow-left text-xl"></i>
+          <span class="font-semibold tracking-wide lang" data-key="back"
+            >Back</span
+          >
+        </a>
+        <h1
+          class="text-2xl font-bold tracking-tighter lang pe-4"
+          data-key="title-project"
+        >
+          Project
+        </h1>
+      </div>
+    </header>
+    <main class="w-full max-w-7xl mx-auto px-6 md:px-16 py-12 flex-1 mt-10">
       <div id="data-proyek" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
     </main>
 
-    <footer class="py-8 text-center text-white/50 text-sm border-t border-white/10">
+    <footer
+      class="py-8 text-center text-white/50 text-sm border-t border-white/10"
+    >
       &copy; 2026 Sultan Herrysan
     </footer>
-
   </body>
   <!-- SwiperJS -->
   <script src="/dist/assets/vendors/swiper/swiper-bundle.min.js"></script>

@@ -4,8 +4,10 @@ import { main } from "./data.js";
 // First visit check
 if (sessionStorage.getItem("welcoming")) {
   // You can add any first-visit specific logic here, such as showing a welcome message or tutorial.
-  document.querySelector("#loading-screen").remove();
-  document.querySelector("body").classList.remove("overflow-y-hidden");
+  if (document.querySelector("#main-page")) {
+    document.querySelector("#loading-screen").remove();
+    document.querySelector("body").classList.remove("overflow-y-hidden");
+  }
 }
 
 let currentLang = localStorage.getItem("lang") || "id";
@@ -91,7 +93,9 @@ const initiatePengalaman = (data) => {
 const initiateProyek = (data) => {
   let parentElement = document.querySelector("#data-proyek");
   if (!parentElement) return;
-
+  if (parentElement.dataset.max) {
+    data = data.slice(0, parseInt(parentElement.dataset.max));
+  }
   parentElement.innerHTML = ""; // clear old data
   data.forEach((item) => {
     let headLink = "";
@@ -135,13 +139,20 @@ const initiateProyek = (data) => {
         `</li>`;
     });
     let images = "";
+    let moreImage = false;
+    if (document.querySelector("#main-page")) {
+      if (item.image.length > 5) {
+        item.image = item.image.slice(0, 5); // Limit to 5 images to prevent overload
+        moreImage = true;
+      }
+    }
     item.image.forEach((image) => {
       images +=
         `
       <a href="` +
         image +
         `" class="swiper-slide !w-fit py-5">
-        <img class="object-contain max-h-60"
+            <img loading="lazy" class="object-contain max-h-60"
           src="` +
         image +
         `"
@@ -156,14 +167,14 @@ const initiateProyek = (data) => {
     div.innerHTML =
       `
         <div class="flex justify-between">
-          <span class="font-semibold text-white">` +
+          <span class="font-semibold text-white mb-2">` +
       item.title +
       `</span>
           <span>` +
       headLink +
       `</span>
         </div>
-        <div>
+        <div class="line-clamp-3 text-ellipsis">
           ` +
       item.desc +
       `
@@ -261,6 +272,25 @@ const whichElementInViewport = () => {
     if (anchor > distanceToTop) {
       // change the active side bar link
       changeNavClass(section, section[x].id, x);
+      // change the title on mobile top bar
+      const titleBarDictionary = {
+        tentang: "nav-about",
+        pengalaman: "nav-experience",
+        keterampilan: "nav-competency",
+        proyek: "nav-project",
+      };
+      document.querySelector("#mobile-titlebar h1").innerHTML =
+        titleBarDictionary[section[x].id]
+          ? currentData.texts[titleBarDictionary[section[x].id]]
+          : "";
+      document
+        .querySelector("#mobile-titlebar h1")
+        .setAttribute(
+          "data-key",
+          titleBarDictionary[section[x].id]
+            ? titleBarDictionary[section[x].id]
+            : "",
+        );
       break;
     }
   }
@@ -332,7 +362,9 @@ const start = async () => {
   whichElementInViewport();
 
   // Dynamically import gsap.js after start logic
-  await import("./gsap.js");
+  if (document.querySelector("#main-page")) {
+    await import("./gsap.js");
+  }
 };
 
 document.addEventListener("DOMContentLoaded", async (event) => {

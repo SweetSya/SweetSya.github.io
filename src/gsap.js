@@ -162,7 +162,7 @@ window.addEventListener("load", async () => {
     yPercent: -100,
     ease: "power2.inOut",
     scrollTrigger: {
-      start: "center center-=250",
+      start: "center center-=100",
       trigger: "#tentang",
       scrub: 1,
       end: () =>
